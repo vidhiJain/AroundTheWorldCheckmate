@@ -40,35 +40,63 @@
     </script>
     <style type="text/css">
       html, body{padding: 0; margin: 0;}
-      #earth_div{top: 0; right: 0; bottom: 0; left: 0;
-                 position: absolute !important;
-                 background-image: -webkit-gradient(
-                   linear,
-                   left bottom,
-                   left top,
-                   color-stop(0, rgb(253,253,253)),
-                   color-stop(0.15, rgb(253,253,253)),
-                   color-stop(0.53, rgb(223,223,223)),
-                   color-stop(0.56, rgb(255,255,255)),
-                   color-stop(1, rgb(253,253,253))
-                   );
-                 background-image: -moz-linear-gradient(
-                   center bottom,
-                   rgb(253,253,253) 0%,
-                   rgb(253,253,253) 15%,
-                   rgb(223,223,223) 53%,
-                   rgb(255,255,255) 56%,
-                   rgb(253,253,253) 100%
-                   );
-                 z-index:1;
-      }
-      #buttons{
+      #earth_div{
+        top: 0; right: 0; bottom: 0; left: 20%;
+        position: absolute !important;
+        height: 100%;
+        background-image: -webkit-gradient(
+           linear,
+           left bottom,
+           left top,
+           color-stop(0, rgb(253,253,253)),
+           color-stop(0.15, rgb(253,253,253)),
+           color-stop(0.53, rgb(223,223,223)),
+           color-stop(0.56, rgb(255,255,255)),
+           color-stop(1, rgb(253,253,253))
+           );
+        background-image: -moz-linear-gradient(
+           center bottom,
+           rgb(253,253,253) 0%,
+           rgb(253,253,253) 15%,
+           rgb(223,223,223) 53%,
+           rgb(255,255,255) 56%,
+           rgb(253,253,253) 100%
+           );
+        z-index:1;
+        width:80%;
+
+      } 
+      #sidebar{
+        width:20%;
+        height: 100%;
+        overflow:auto;
         position: absolute; 
-        top:10px; 
-        left: 10px;
         display:block;
         z-index: 500;
       }
+      
+      .btn {
+      display.: inline-block;
+      /*padding: 20px 40px;*/
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+      border: 2px solid #ddd;
+      color: #ddd;
+      text-decoration: none;
+      /*margin: 0px 10px 10px 0;*/
+      transition: all .6s;
+      min-width: 100px;
+      width: 100%;
+      text-align: center;
+  
+      }
+      .btn:hover {
+          background: #ddd;
+          color: #fff;
+      }
+      .btn.color-5 {border-color: #2C3E50;color: #fff;background:#2C3E50;}
+      .btn.color-5:hover {color:#2C3E50;background: #ddd;font-size:20px;}
+      
       .black_overlay{
       display: none;
       position: absolute;
@@ -99,13 +127,38 @@
     <title>Around The World - Checkmate</title>
   </head>
   <body onload="initialize()">
-    <div id="earth_div"></div>
-    <div id="buttons">
-      <input type="button" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+    <div id="container">
+      <div id="header"></div>
+      <div id="earth_div"></div>
+      <div id="sidebar">
+        <div id="nav_buttons" >
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to Islamabad" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
+        </div>
+      </div>
+      <!--LightBox-->
+      <div id="light" class="white_content">
+        This is the lightbox content. 
+        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
+      <div id="fade" class="black_overlay"></div>
     </div>
-    <div id="light" class="white_content">
-      This is the lightbox content. 
-      <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
-    <div id="fade" class="black_overlay"></div>
   </body>
 </html>
