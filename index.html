@@ -1,8 +1,23 @@
 <!DOCTYPE HTML>
 <html>
   <head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="v2/api.js"></script>
     <script>
+    var on_sidebar=true;
+    function sidebar(){
+      if(on_sidebar==true)
+      {
+        $('#sidebar').animate({left:'-20%'},200);
+        $('#earth_div').animate({width:'100%',left:'0%'},200);
+        on_sidebar=false;
+      }
+      else{
+        $('#sidebar').animate({left:'0%'},200);
+        $('#earth_div').animate({width:'80%',left:'20%'},200);
+        on_sidebar=true;
+      }
+    }
       //Declaring the variable earth
       var earth;
       
@@ -30,7 +45,7 @@
         //Displaying Marker
         var marker=WE.marker([51.5, -0.09]).addTo(earth);
           marker.bindPopup(
-            "<a href = '#' onclick = 'showLightBox()'><div><b><center>London</center></b><br><span style='font-size:10px;color:#999'>'Cost of Accomodation: $40/min'</span></div></a>", {maxWidth: 150, closeButton: true}).openPopup();
+            "<a href = 'https://developers.google.com/cloud-messaging/' onclick = 'showLightBox()'><div><b><center>London</center></b><br><span style='font-size:10px;color:#999'>'Cost of Accomodation: $40/min'</span></div></a>", {maxWidth: 150, closeButton: true}).openPopup();
       }
 
       //function to Fly to a place
@@ -40,10 +55,18 @@
     </script>
     <style type="text/css">
       html, body{padding: 0; margin: 0;}
+      #header {
+          height:5%;
+          background:#F0F0F0;
+          border:1px solid #CCC;
+          width:960px;
+          margin:0px auto;
+          position :fixed;
+      }
       #earth_div{
-        top: 0; right: 0; bottom: 0; left: 20%;
+        top: 10%; right: 0; bottom: 0; left: 20%;
         position: absolute !important;
-        height: 100%;
+        height: 90%;
         background-image: -webkit-gradient(
            linear,
            left bottom,
@@ -67,11 +90,11 @@
 
       } 
       #sidebar{
+        top:10%;
         width:20%;
-        height: 100%;
+        height: 90%;
         overflow:auto;
         position: absolute; 
-        display:block;
         z-index: 500;
       }
       
@@ -123,12 +146,21 @@
         z-index:1002;
         overflow: auto;
       }
-    </style>
+      
+      </style>
     <title>Around The World - Checkmate</title>
   </head>
   <body onload="initialize()">
     <div id="container">
-      <div id="header"></div>
+      <div id="header">
+        <div id="game-title">
+          Around The World - Checkmate
+        </div>
+        <div id="market">
+          Market Place
+        </div>
+      </div>
+
       <div id="earth_div"></div>
       <div id="sidebar">
         <div id="nav_buttons" >
