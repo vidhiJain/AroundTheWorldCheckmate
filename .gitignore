@@ -1,0 +1,20 @@
+*.pyc
+__pycache__/
+/README.html
+output.txt
+*.db
+
+/.env
+/TODO.txt
+/staticfiles/
+venv/
+venv2/
+venv3/
+/extstatic/
+
+# OS files
+*~
+Desktop.ini
+.DS_Store
+.AppleDouble
+.LSOverride
