@@ -1,6 +1,6 @@
 *.pyc
 __pycache__/
-/README.html
+README.html
 output.txt
 *.db
 
