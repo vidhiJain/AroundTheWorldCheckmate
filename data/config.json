@@ -1,5 +1,6 @@
 {
 	"initial_score": 200.0,
+	"initial_location": "Pilani",
 	"travel_cost_per_km": 0.1,
 	"score_divider": 2.0
 }

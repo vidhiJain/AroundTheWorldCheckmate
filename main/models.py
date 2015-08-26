@@ -17,21 +17,24 @@ class Question(models.Model):
 class Player(models.Model):
 	user = models.OneToOneField(User)
 	score = models.FloatField()
-	curr_loc = models.ForeignKey(Question)
-	arrival_time = models.DateTimeField(null=True)
+	curr_loc = models.ForeignKey(Question,null=True)
+	arrival_time = models.DateTimeField(blank=True,null=True)
+
 	# initially timer will be paused (arrival_time=null)
 	# When a user visits a place timer will (re)start (arrival_time=timezone.now())
 	# When game ends timer will stop (arrival_time=null)
 	def __str__(self):
 		return self.user.username
 
-	# Contact details
+	contact_fields = ('name1','name2','phone1','phone2','email1','email2','bitsid1','bitsid2')
 	name1 = models.CharField(max_length=200,blank=False)
 	name2 = models.CharField(max_length=200,blank=False)
-	phone1 = models.BigIntegerField(null=False)
-	phone2 = models.BigIntegerField(null=True)
+	phone1 = models.BigIntegerField()
+	phone2 = models.BigIntegerField(blank=True,null=True)
 	email1 = models.EmailField(blank=False)
 	email2 = models.EmailField(blank=True)
+	bitsid1 = models.CharField(max_length=16,blank=True)
+	bitsid2 = models.CharField(max_length=16,blank=True)
 
 class Attempt(models.Model):
 	user = models.ForeignKey(User)
