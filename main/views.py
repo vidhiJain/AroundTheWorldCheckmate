@@ -16,24 +16,29 @@ from datetime import timedelta, datetime
 from django.utils import timezone
 from django.conf import settings
 
-def status_and_message(status, message):
-	response_dict = OrderedDict()
-	response_dict["status"] = status
-	response_dict["message"] = message
-	return HttpResponse(json.dumps(response_dict, indent=2), content_type="application/json")
+def TextResponse(message, status=None):
+	return HttpResponse(message, content_type="text/plain", status=status)
 
 @require_POST
 @csrf_exempt
 def register(request):
+	"""
+	Content-Type: text/plain
+
+	Possible error messages and their meanings:
+	invalid_data: The form did not pass backend validation checks. form.is_valid() returned False
+	username_taken: The username supplied for registration is already in use
+	success: The account was successfully created
+	"""
 	form = forms.PlayerForm(request.POST)
 	if not form.is_valid():
-		return status_and_message("invalid_data", "The form did not pass backend validation checks. form.is_valid() returned False")
+		return TextResponse("invalid_data", status=400)
 
 	player = form.save(commit=False)
 	username = form.cleaned_data["username"]
 	password = form.cleaned_data["password"]
 	if User.objects.filter(username=username).exists():
-		return status_and_message("user_taken", "The username \'"+username+"\' is already in use")
+		return TextResponse("username_taken")
 	user = User(username=username)
 	user.set_password(password)
 	user.save()
@@ -48,26 +53,56 @@ def register(request):
 			pass
 	player.save()
 
-	return status_and_message("success", "The username \'"+username+"\' was successfully registered")
+	return TextResponse("success")
 
-def check_user(request):
+def get_user_from_auth_header(request):
+	"""
+	Uses the authentication header to get a username and password
+	and then fetches the user object from the database
+	If authentication was successful, returns (user,"success")
+	else returns (None,auth_status_code)
+
+	Possible auth status codes and their meanings:
+	auth_missing: Authorization header is not present
+	invalid_auth: Authorization header is corrupt
+	unsupported_auth: Non-basic auth was used. Only basic auth is supported
+	wrong_login: The username or password is incorrect
+	success: The supplied credentials are correct
+	"""
 	header = request.META.get('HTTP_AUTHORIZATION')
 	if not header:
-		return status_and_message("no_auth","Authorization header is not present")
+		return (None,"auth_missing")
 	header_parts = header.split()
-	corrupt_header_response = status_and_message("invalid_auth","Authorization header is corrupt")
 	if len(header_parts)!=2:
-		return corrupt_header_response
+		return (None,"invalid_auth")
 	auth_type, digest = header_parts
 	if auth_type.lower()!='basic':
-		return status_and_message("unsupported_auth", "This auth type is not supported. Only basic auth is supported")
-	credentials = b64decode(digest.encode('utf-8')).decode('utf-8').split(':',maxsplit=1)
+		return (None,"unsupported_auth")
+	try:
+		smashed_credentials = b64decode(digest.encode('utf-8')).decode('utf-8')
+	except Exception:
+		return (None,"invalid_auth")
+	credentials = smashed_credentials.split(':',maxsplit=1)
 	if len(credentials)!=2:
-		return corrupt_header_response
+		return (None,"invalid_auth")
 	username, password = credentials
 	user = authenticate(username=username,password=password)
 	if not user:
-		return status_and_message("wrong_login", "The username or password is incorrect")
+		return (None,"wrong_login")
 	else:
-		return status_and_message("success", "The supplied credentials are correct")
-	return HttpResponse(username+':'+password, content_type='text/plain')
+		return (user,"success")
+
+def basic_auth_required(function):
+	# This is a decorator
+	def wrapper(request,*args,**kwargs):
+		user, auth_status_code = get_user_from_auth_header(request)
+		if user:
+			request.user = user
+			return function(request,*args,**kwargs)
+		else:
+			return TextResponse(auth_status_code, status=401)
+	return wrapper
+
+@basic_auth_required
+def check_user(request):
+	return TextResponse("success")
