@@ -30,24 +30,26 @@
 
       //Intialise the webGl Earth
       function initialize() {
-        if (window.location.href.substr(0, 5) === 'file:')
-          alert("This file must be accessed via http:// or https:// to run properly.");
-        earth = new WE.map('earth_div');
-        earth.setView([46.8011, 8.2266], 2);
-        WE.tileLayer('{z}/{x}/{y}.jpg', {
+        var options = {
+          minZoom: 0,
+          maxZoom: 2,
+          minAltitude:500000,
+          maxAltitude: 20000000,
           tileSize: 256,
           bounds: [[-85, -180], [85, 180]],
-          minZoom: 0,
-          maxZoom: 16,
+          tms: true,
           attribution: 'Around The World - Checkmate',
-          tms: true
-        }).addTo(earth);
-
-        //Displaying Marker
+        }
+        earth = new WE.map('earth_div', options);
+        earth.setView([46.8011, 8.2266], 2);
+        WE.tileLayer('{z}/{x}/{y}.png',{tms:false,}).addTo(earth);
+        
+        //Displaying Marker -12523442.714243278 -9019892.870738905 12523442.714243278 16026992.557747653
         var marker=WE.marker([51.5, -0.09]).addTo(earth);
           marker.bindPopup(
-            "<a href = 'https://developers.google.com/cloud-messaging/' onclick = 'showLightBox()'><div><b><center>London</center></b><br><span style='font-size:10px;color:#999'>'Cost of Accomodation: $40/min'</span></div></a>", {maxWidth: 150, closeButton: true}).openPopup();
+            "<a href = '#' onclick = 'showLightBox()'><div><b><center>London</center></b><br><span style='font-size:10px;color:#999'>'Cost of Accomodation: $40/min'</span></div></a>", {maxWidth: 150, closeButton: true}).openPopup();
       }
+
 
       //function to Fly to a place
       function panTo(coords) {
