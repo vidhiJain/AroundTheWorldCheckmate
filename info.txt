@@ -5,3 +5,36 @@ curl -d "username=teamrocket" -d "password=password" -d "name1=Jessie" -d "name2
 
 cURL command to check a user's credentials:
 curl --user "myusername" http://localhost:15000/api/check_user/
+
+Endpoints:
+POST /api/fly_to/{loc_slug}
+	{
+		"question":"",
+		"attempts_left":"",
+		//"bounty":""
+	}
+
+POST /api/submit/{loc_slug}
+answer=""
+	{
+		"attempt_status":[true,false,none]
+	}
+
+
+Infobox:
+Location name
+Cost to travel
+Rent
+Stipend
+
+Lightbox:
+#include<infobox>
+Question
+Attempts left
+Submit button
+Skip button
+
+Main:
+Score
+Specific time
+Quit button
