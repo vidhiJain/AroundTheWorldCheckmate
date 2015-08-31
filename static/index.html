@@ -2,7 +2,7 @@
 <html>
   <head>
   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-  <script src="/static/js/jquery.min.js"></script>
+  <script src="js/jquery.min.js"></script>
     <script src="v2/api.js"></script>
     <script>
     var on_sidebar=true;
@@ -42,8 +42,8 @@
         }
         earth = new WE.map('earth_div', options);
         earth.setView([46.8011, 8.2266], 2);
-        WE.tileLayer('{z}/{x}/{y}.png',{tms:false,}).addTo(earth);
-        
+        WE.tileLayer('{z}/{x}/{y}.jpg',options).addTo(earth);
+
         //Displaying Marker -12523442.714243278 -9019892.870738905 12523442.714243278 16026992.557747653
         var marker=WE.marker([51.5, -0.09]).addTo(earth);
           marker.bindPopup(
@@ -91,13 +91,13 @@
         z-index:1;
         width:80%;
 
-      } 
+      }
       #sidebar{
         top:10%;
         width:20%;
         height: 90%;
         overflow:auto;
-        position: absolute; 
+        position: absolute;
         z-index: 500;
       }
 
@@ -191,7 +191,7 @@
       </div>
       <!--LightBox-->
       <div id="light" class="white_content">
-        This is the lightbox content. 
+        This is the lightbox content.
         <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
       <div id="fade" class="black_overlay"></div>
     </div>
