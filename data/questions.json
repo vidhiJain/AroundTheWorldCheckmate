@@ -1,0 +1,13 @@
+[
+	{
+		"loc_name":"Barcelona",
+		"country":"Spain",
+		"latitude":41.3833,
+		"longitude":2.1833,
+		"rent":0.0,
+		"question":
+		"Barcelona is famous for it's football club 'FC Barcelona'. It has many talented players like Messi, Xavi, Iniesta. Sam is a big fan of FC Barcelona. He himself plays football very well and spends most of his time playing football.\nA classic football is made up of 20 regular hexagonal faces and 12 regular pentagonal faces. Sam tries to make a football using more number of hexagonal and pentagonal faces. He realized that this cannot be done using regular polygons. So he tried using irregular convex hexagons and pentagons. He was finally able to make one. His football contains 25 hexagonal faces. How many pentagonal faces does it have?",
+		"answer":"12",
+		"answer_format":"\\d+"
+	}
+]
