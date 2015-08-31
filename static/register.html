@@ -203,7 +203,7 @@
 
 		<div class="tab-content">
 
-			<div id="register">             
+			<div id="register">
 				<form action="#" method="post">
 					<div class="halfCol">
 						<div class="field-wrap">
@@ -305,7 +305,7 @@
 	</div> <!-- /form -->
 </body>
 <script>
-	var server_ip = "http://172.17.1.186:15000";
+	var server_ip = "http://172.17.1.186:15130";
 	$('.form form').attr('action',server_ip+'/api/register/');
 
 	<!-- ///201\d(\w[1-9B]){1,2}[PT]S\d\d\dP/ -->
@@ -322,15 +322,15 @@
 			}
 		} else if (e.type === 'blur') {
 			if( $this.val() === '' ) {
-				label.removeClass('active highlight'); 
+				label.removeClass('active highlight');
 			} else {
-				label.removeClass('highlight');   
-			}   
+				label.removeClass('highlight');
+			}
 		} else if (e.type === 'focus') {
 
 			if( $this.val() === '' ) {
-				label.removeClass('highlight'); 
-			} 
+				label.removeClass('highlight');
+			}
 			else if( $this.val() !== '' ) {
 				label.addClass('highlight');
 			}
