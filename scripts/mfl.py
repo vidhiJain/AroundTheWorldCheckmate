@@ -19,7 +19,13 @@ from collections import OrderedDict
 def make_loc_file():
 	loc_dict = OrderedDict()
 	with open(DEFAULT_QUESTIONS_FILE_PATH) as _ques_file:
-		ques_dict = json.load(_ques_file, object_pairs_hook=OrderedDict)
+		try:
+			ques_dict = json.load(_ques_file, object_pairs_hook=OrderedDict)
+		except ValueError as v:
+			print("The input file is not a valid JSON file")
+			print("Here are the details of the error:")
+			print(v)
+			return
 		for loc_name, ques in ques_dict.items():
 			valid_ques = True
 
