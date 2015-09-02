@@ -7,7 +7,8 @@ cURL command to check a user's credentials:
 curl --user "myusername" http://localhost:15130/api/check_user/
 
 Endpoints:
-POST /api/fly_to/{loc_slug}
+POST /api/fly_to/
+location=""
 	{
 		"question":"",
 		"attempts_left":"",

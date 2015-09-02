@@ -5,10 +5,10 @@ from django.utils import timezone
 
 class Question(models.Model):
 	loc_name = models.CharField("Location name",max_length=64,blank=False)
-	question = models.TextField()
-	answer = models.CharField(max_length=64,blank=False)
-	rent = models.FloatField("Accomodation cost per second")
-	stipend = models.FloatField()
+	text = models.TextField(blank=True)
+	answer = models.CharField(max_length=64,blank=True)
+	rent = models.FloatField("Accomodation cost per second",default=0.0)
+	stipend = models.FloatField(default=0.0)
 	def __str__(self):
 		return self.loc_name
 

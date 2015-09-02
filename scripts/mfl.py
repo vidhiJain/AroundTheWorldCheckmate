@@ -10,12 +10,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_QUESTIONS_FILE_PATH = os.path.join(BASE_DIR, "data", "questions.json")
 DEFAULT_LOCATIONS_FILE_PATH = os.path.join(BASE_DIR, "static", "locations.json")
 
-REQUIRED_FIELDS_TO_COPY = ('latitude','longitude','rent','stipend')
-OPTIONAL_FIELDS_TO_COPY = ('country',)
-REQUIRED_FIELDS_TO_LEAVE = ('question','answer')
-
-def generate_slug(s):
-	return s.replace(' ','_').lower()
+REQUIRED_FIELDS = ('latitude','longitude')
+OPTIONAL_FIELDS = ('country','rent','stipend')
 
 import json
 from collections import OrderedDict
@@ -23,19 +19,12 @@ from collections import OrderedDict
 def make_loc_file():
 	loc_dict = OrderedDict()
 	with open(DEFAULT_QUESTIONS_FILE_PATH) as _ques_file:
-		ques_list = json.load(_ques_file, object_pairs_hook=OrderedDict)
-		for loc_name, ques in ques_list.items():
+		ques_dict = json.load(_ques_file, object_pairs_hook=OrderedDict)
+		for loc_name, ques in ques_dict.items():
 			valid_ques = True
 
-			for key in REQUIRED_FIELDS_TO_LEAVE:
-				if key not in ques:
-					valid_ques = False
-					break
-			if not valid_ques:
-				continue
-
 			details_dict = OrderedDict()
-			for key in REQUIRED_FIELDS_TO_COPY:
+			for key in REQUIRED_FIELDS:
 				if key in ques:
 					details_dict[key] = ques[key]
 				else:
@@ -44,7 +33,7 @@ def make_loc_file():
 			if not valid_ques:
 				continue
 
-			for key in OPTIONAL_FIELDS_TO_COPY:
+			for key in OPTIONAL_FIELDS:
 				if key in ques:
 					details_dict[key] = ques[key]
 			loc_dict[loc_name] = details_dict
