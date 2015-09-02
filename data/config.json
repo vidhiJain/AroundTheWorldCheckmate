@@ -3,5 +3,6 @@
 	"initial_location": "pilani",
 	"travel_cost_per_km": 0.1,
 	"score_divider": 2.0,
-	"max_attempts_per_question":3
+	"max_attempts_per_question":3,
+	"earth_radius_in_km": 6371.0
 }

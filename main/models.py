@@ -38,7 +38,7 @@ class Attempt(models.Model):
 	user = models.ForeignKey(User)
 	question = models.ForeignKey(Question)
 	attempts = models.IntegerField(default=0)
-	correct = models.BooleanField(default=0)
+	correct = models.BooleanField(default=False)
 	def __str__(self):
 		return self.user.username+" : "+self.question.loc_name
 
