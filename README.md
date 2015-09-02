@@ -4,3 +4,6 @@ Code for checkmate 2015. Made using Python 3.4 and Django 1.8.
 
 * All WebGL files are in the folder named `static`.
 * All backend non-database data (like config) is stored in the folder named `data`.
+
+Setup:
+Run `scripts/mfl.py` in python 2 or 3 to create locations.json from questions.json. If you don't want to run the script, you can manually copy `data/questions.json` to `scripts/locations.json` as an insecure workaround.

@@ -1,6 +1,6 @@
-[
+{
+	"Barcelona":
 	{
-		"loc_name": "Barcelona",
 		"country": "Spain",
 		"latitude": 41.3833,
 		"longitude": 2.1833,
@@ -11,8 +11,8 @@
 		"answer": "12",
 		"answer_format": "\\d+"
 	},
+	"Hanoi":
 	{
-		"loc_name": "Hanoi",
 		"country": "Vietnam",
 		"latitude": 21.0285,
 		"longitude": 105.8542,
@@ -22,8 +22,8 @@
 		"answer": "32800",
 		"answer_format": "\\d+"
 	},
+	"Paris":
 	{
-		"loc_name": "Paris",
 		"country": "France",
 		"latitude": 48.8567,
 		"longitude": 2.3508,
@@ -32,4 +32,4 @@
 		"question": "Little known to people is the large number of mathematicians France has given the world. On such mathematician in Paris, Antoine Arnauld, discovered the first multiplicative magic square. A multiplicative magic square is an arrangement of distinct numbers, usually integers, in a square grid, where the numbers in each row, and in each column, and the numbers in both diagonals, all have the same non-zero product, called the magic product. Consider a 3x3 multiplicative magic square with 3 in the upper right corner and 2 in the upper left corner. The magic product is 216. Find the sum of all numbers in the magic square. (It is not neccessary that numbers in the square vary from 1 to 9. They can be any integers.)",
 		"answer": "91"
 	}
-]
+}
