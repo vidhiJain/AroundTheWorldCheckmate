@@ -1,10 +1,10 @@
 This file is intended to contain info which can be useful to others, but is not part of code and doesn't seem to belong anywhere else.
 
 cURL command to register a user:
-curl -d "username=teamrocket" -d "password=password" -d "name1=Jessie" -d "name2=James" -d "phone1=0" -d "email1=jessie@gmail.com" http://localhost:15000/api/register/
+curl -d "username=teamrocket" -d "password=password" -d "name1=Jessie" -d "name2=James" -d "phone1=0" -d "email1=jessie@gmail.com" http://localhost:15130/api/register/
 
 cURL command to check a user's credentials:
-curl --user "myusername" http://localhost:15000/api/check_user/
+curl --user "myusername" http://localhost:15130/api/check_user/
 
 Endpoints:
 POST /api/fly_to/{loc_slug}
@@ -14,7 +14,7 @@ POST /api/fly_to/{loc_slug}
 		//"bounty":""
 	}
 
-POST /api/submit/{loc_slug}
+POST /api/submit/
 answer=""
 	{
 		"attempt_status":[true,false,none]

@@ -4,13 +4,11 @@ from datetime import timedelta, datetime
 from django.utils import timezone
 
 class Question(models.Model):
-	text = models.TextField()
 	loc_name = models.CharField("Location name",max_length=64,blank=False)
-	rent = models.FloatField("Accomodation cost per second")
+	question = models.TextField()
 	answer = models.CharField(max_length=64,blank=False)
-	max_attempts = models.IntegerField(default=0)
-	marks = models.FloatField()
-	# divider = models.FloatField()
+	rent = models.FloatField("Accomodation cost per second")
+	stipend = models.FloatField()
 	def __str__(self):
 		return self.loc_name
 
