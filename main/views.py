@@ -44,8 +44,7 @@ def register(request):
 	user.save()
 	player.user = user
 
-	player.score = settings.CONFIG.get("initial_score")
-	# if initial_score is not present in config.json, an exception will be thrown
+	player.score = settings.CONFIG["initial_score"]
 	loc_name = settings.CONFIG.get("initial_location")
 	if loc_name:
 		try:
