@@ -10,7 +10,7 @@
 		"latitude": 41.3833,
 		"longitude": 2.1833,
 		"rent": 0.0,
-		"stipend": 0.0,
+		"stipend": 1000.0,
 		"question":
 		"Barcelona is famous for it's football club 'FC Barcelona'. It has many talented players like Messi, Xavi, Iniesta. Sam is a big fan of FC Barcelona. He himself plays football very well and spends most of his time playing football.\nA classic football is made up of 20 regular hexagonal faces and 12 regular pentagonal faces. Sam tries to make a football using more number of hexagonal and pentagonal faces. He realized that this cannot be done using regular polygons. So he tried using irregular convex hexagons and pentagons. He was finally able to make one. His football contains 25 hexagonal faces. How many pentagonal faces does it have?",
 		"answer": "12",
@@ -22,7 +22,7 @@
 		"latitude": 21.0285,
 		"longitude": 105.8542,
 		"rent": 0.0,
-		"stipend": 0.0,
+		"stipend": 800.0,
 		"question": "Hanoi, the capital of Vietnam, is famous for having over 600 temples and monasteries. According to a legend, there is a hidden monastery in Hanoi. That monastery has 3 vertical rods arranged in a line, and a number of disks of different sizes which can slide onto any rod. Every morning, the principal monk (their guru) arranges the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape. He gives his disciple monks the task to move the entire stack to another rod, obeying the following simple rules:\n1. Only one disk can be moved at a time.\n2. Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.\n3. No disk may be placed on top of a smaller disk.\n4. A disk can only be moved to an adjacent rod.\nHe claims that if a monk is able to successfully complete this task, he/she will gain enlightenment.\nIf the stack is made of 8 disks and a monk takes 5 seconds to move a disk, what is the minimum time (in seconds) in which he/she can gain enlightenment?",
 		"answer": "32800",
 		"answer_format": "\\d+"
@@ -33,7 +33,7 @@
 		"latitude": 48.8567,
 		"longitude": 2.3508,
 		"rent": 0.0,
-		"stipend": 0.0,
+		"stipend": 800.0,
 		"question": "Little known to people is the large number of mathematicians France has given the world. On such mathematician in Paris, Antoine Arnauld, discovered the first multiplicative magic square. A multiplicative magic square is an arrangement of distinct numbers, usually integers, in a square grid, where the numbers in each row, and in each column, and the numbers in both diagonals, all have the same non-zero product, called the magic product. Consider a 3x3 multiplicative magic square with 3 in the upper right corner and 2 in the upper left corner. The magic product is 216. Find the sum of all numbers in the magic square. (It is not neccessary that numbers in the square vary from 1 to 9. They can be any integers.)",
 		"answer": "91"
 	}

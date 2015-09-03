@@ -126,13 +126,8 @@ def send_init_data(request):
 @basic_auth_required
 def exit_game(request):
 	player = request.user.player
-	if player.curr_loc:
-		rent = player.curr_loc.rent
-		now = timezone.now()
-		player.score-= (now-player.arrival_time).total_seconds()*rent
-		player.arrival_time = now
-		player.curr_loc = None
-		player.save()
+	player.fly_to(None,timezone.now())
+	player.save()
 	player.user.is_active = False
 	player.user.save()
 	r = {"score":player.score}

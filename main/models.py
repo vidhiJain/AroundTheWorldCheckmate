@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from datetime import timedelta, datetime
 from django.utils import timezone
+from django.conf import settings
 
 class Question(models.Model):
 	loc_name = models.CharField("Location name",max_length=64,blank=False)
@@ -23,6 +24,17 @@ class Player(models.Model):
 	# When game ends timer will stop (arrival_time=null)
 	def __str__(self):
 		return self.user.username
+	def fly_to(self,new_loc,depart_time):
+		# Does not save the model
+		if self.curr_loc:
+			self.score-= (depart_time-self.arrival_time).total_seconds()*self.curr_loc.rent
+			if new_loc:
+				distance = Distance.objects.get(source=self.curr_loc, dest=new_loc).distance
+				self.score-= distance*settings.CONFIG["travel_cost_per_km"]
+#		elif not new_loc:
+#			return	# This prevents changing arrival_time if user is flying from None to None
+		self.arrival_time = depart_time
+		self.curr_loc = new_loc
 
 	contact_fields = ('name1','name2','phone1','phone2','email1','email2','bitsid1','bitsid2')
 	name1 = models.CharField(max_length=200,blank=False)
