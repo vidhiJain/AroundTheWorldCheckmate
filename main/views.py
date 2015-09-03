@@ -49,7 +49,7 @@ def register(request):
 	if loc_name:
 		try:
 			player.curr_loc = models.Question.objects.get(loc_name=loc_name)
-			player.arrival_time= timezone.now()
+			player.arrival_time = timezone.now()
 		except models.Question.DoesNotExist:
 			print(loc_name,"does not exist")
 	player.save()
@@ -90,8 +90,10 @@ def get_user_from_auth_header(request):
 	user = authenticate(username=username,password=password)
 	if not user:
 		return (None,"wrong_login")
-	else:
+	elif user.is_active:
 		return (user,"success")
+	else:
+		return (user,"inactive")
 
 def basic_auth_required(function):
 	# This is a decorator
@@ -99,11 +101,39 @@ def basic_auth_required(function):
 		user, auth_status_code = get_user_from_auth_header(request)
 		if user:
 			request.user = user
-			return function(request,*args,**kwargs)
+			if auth_status_code=="success":
+				return function(request,*args,**kwargs)
+			else:
+				return TextResponse(auth_status_code, status=403)
 		else:
 			return TextResponse(auth_status_code, status=401)
 	return wrapper
 
+@require_safe
 @basic_auth_required
 def check_user(request):
 	return TextResponse("success")
+
+@require_safe
+@basic_auth_required
+def send_init_data(request):
+	player = request.user.player
+	d = {"score":player.score, "arrival_time":player.arrival_time}
+	return JsonResponse(d)
+
+@require_POST
+@csrf_exempt
+@basic_auth_required
+def exit_game(request):
+	player = request.user.player
+	if player.curr_loc:
+		rent = player.curr_loc.rent
+		now = timezone.now()
+		player.score-= (now-player.arrival_time).total_seconds()*rent
+		player.arrival_time = now
+		player.curr_loc = None
+		player.save()
+	player.user.is_active = False
+	player.user.save()
+	r = {"score":player.score}
+	return JsonResponse(r)
