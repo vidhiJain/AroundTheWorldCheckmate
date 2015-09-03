@@ -49,8 +49,9 @@ def register(request):
 	if loc_name:
 		try:
 			player.curr_loc = models.Question.objects.get(loc_name=loc_name)
+			player.arrival_time= timezone.now()
 		except models.Question.DoesNotExist:
-			pass
+			print(loc_name,"does not exist")
 	player.save()
 
 	return TextResponse("success")
