@@ -125,6 +125,10 @@ def send_init_data(request):
 @require_POST
 def exit_game(request):
 	player = request.user.player
+	rent= request.user.curr_loc.rent
+	player.score+=(timezone.now()-player.arrival_time)*rent
+	player.curr_loc=None
+	player.arrival_time='NULL'
 	player.user.is_active = False
 	player.user.save()
 	r = {"score":player.score}
