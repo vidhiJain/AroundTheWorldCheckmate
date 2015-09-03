@@ -16,7 +16,7 @@ class Player(models.Model):
 	user = models.OneToOneField(User)
 	score = models.FloatField()
 	curr_loc = models.ForeignKey(Question,null=True)
-	arrival_time = models.DateTimeField(blank=True,null=True)
+	arrival_time = models.DateTimeField()
 
 	# initially timer will be paused (arrival_time=null)
 	# When a user visits a place timer will (re)start (arrival_time=timezone.now())

@@ -45,13 +45,14 @@ def register(request):
 	player.user = user
 
 	player.score = settings.CONFIG.get("initial_score")
+	# if initial_score is not present in config.json, an exception will be thrown
 	loc_name = settings.CONFIG.get("initial_location")
 	if loc_name:
 		try:
 			player.curr_loc = models.Question.objects.get(loc_name=loc_name)
-			player.arrival_time = timezone.now()
 		except models.Question.DoesNotExist:
 			print(loc_name,"does not exist")
+	player.arrival_time = timezone.now()
 	player.save()
 
 	return TextResponse("success")
