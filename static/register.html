@@ -219,7 +219,7 @@
 							<label>
 								BITS ID
 							</label>
-							<input type="text" name="name2" autocomplete="off" />
+							<input type="text" name="bitsid1" autocomplete="off" />
 						</div>
 						<div class="field-wrap">
 							<label>
@@ -242,7 +242,7 @@
 							<label>
 								Name<span class="req">*</span>
 							</label>
-							<input type="text" name="bitsid1" required autocomplete="off" />
+							<input type="text" name="name2" required autocomplete="off" />
 						</div>
 						<div class="field-wrap">
 							<label>
@@ -277,7 +277,7 @@
 						<input type="password" name="password" required autocomplete="off"/>
 					</div>
 
-					<button type="submit" class="button button-block"/>Get Started</button>
+					<button type="submit" class="button button-block">Get Started</button>
 
 				</form>
 
@@ -296,14 +296,13 @@
 						<label>
 							Password<span class="req">*</span>
 						</label>
-						<input type="password"required autocomplete="off"/>
+						<input type="password" required autocomplete="off"/>
 					</div>
-					<button class="button button-block"/>Log In</button>
+					<button class="button button-block">Log In</button>
 				</form>
 			</div>
 		</div><!-- tab-content -->
 	</div> <!-- /form -->
-</body>
 <script>
 	var server_ip = "http://172.17.1.186:15130";
 	$('.form form').attr('action',server_ip+'/api/register/');
@@ -347,4 +346,5 @@
 		$(target).fadeIn(600);
 	});
 </script>
+</body>
 </html>
