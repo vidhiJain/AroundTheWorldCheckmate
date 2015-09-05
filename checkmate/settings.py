@@ -92,4 +92,10 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
 import json
 with open(os.path.join(BASE_DIR,'data','config.json')) as _config_file:
 	CONFIG = json.load(_config_file)
-#print(CONFIG)
+
+# Other settings
+
+# This will be used to indent all large JSON responses
+JSON_INDENT_LEVEL = 2
+# See this for indentation details:
+# https://docs.python.org/3/library/json.html#json.dump

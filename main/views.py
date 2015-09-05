@@ -1,10 +1,9 @@
 from django.http import HttpResponse, JsonResponse
-from django.core.urlresolvers import reverse
-
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.views.decorators.http import require_http_methods, require_safe, require_POST
 from django.views.decorators.csrf import csrf_exempt
+from django.core.serializers.json import DjangoJSONEncoder
 
 from . import models, forms
 
@@ -18,6 +17,9 @@ from django.conf import settings
 
 def TextResponse(message, status=None):
 	return HttpResponse(message, content_type="text/plain", status=status)
+
+def MyJsonResponse(object_to_send, status=None):
+	return HttpResponse(json.dumps(object_to_send, indent=settings.JSON_INDENT_LEVEL, cls=DjangoJSONEncoder), content_type="application/json", status=status)
 
 @require_POST
 @csrf_exempt
@@ -115,11 +117,20 @@ def check_user(request):
 	return TextResponse("success")
 
 @require_safe
-@basic_auth_required
-def send_init_data(request):
-	player = request.user.player
-	d = {"score":player.score, "arrival_time":player.arrival_time}
-	return JsonResponse(d)
+def user_status(request):
+	user, auth_status_code = get_user_from_auth_header(request)
+	if not user:
+		return TextResponse(auth_status_code, status=401)
+	player = user.player
+	d = OrderedDict()
+	d["is_active"] = user.is_active
+	d["score"] = player.score
+	if player.curr_loc:
+		d["curr_loc"] = player.curr_loc.loc_name
+	else:
+		d["curr_loc"] = None
+	d["arrival_time"] = player.arrival_time
+	return MyJsonResponse(d)
 
 @require_POST
 @csrf_exempt
