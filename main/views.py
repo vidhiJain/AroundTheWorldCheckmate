@@ -187,16 +187,7 @@ def fly_to(request):
 
 	response_dict = OrderedDict()
 	response_dict["score"] = player.score
-	if new_loc.text:
-		max_attempts = settings.CONFIG['max_attempts_per_question']
-		try:
-			att_obj = models.Attempt.objects.get(user=request.user, question=new_loc)
-			if att_obj.correct:
-				response_dict["attempts_left"] = -1
-			else:
-				response_dict["attempts_left"] = max_attempts - att_obj.attempts
-		except models.Attempt.DoesNotExist:
-			response_dict["attempts_left"] = max_attempts
+	response_dict["attempts_left"] = player.attempts_left()
 	response_dict["question"] = new_loc.text
 	return MyJsonResponse(response_dict)
 
@@ -206,35 +197,8 @@ def fly_to(request):
 def submit(request):
 	player = request.user.player
 	user_answer = request.body.decode('utf-8')
-	response_dict = {"score": player.score, "attempt_status": None}
-	empty_response = MyJsonResponse(response_dict)
-	if (not user_answer) or (not player.curr_loc) or (not player.curr_loc.answer):
-		# if location is None or passive or user submitted an empty string, return empty_response
-		return empty_response
-	result = (user_answer == player.curr_loc.answer)
-
-	att_obj = models.Attempt.objects.get_or_create(user=request.user, question=player.curr_loc)[0]
-	max_attempts = settings.CONFIG['max_attempts_per_question']
-	attempts_left = max_attempts - att_obj.attempts
-	if att_obj.correct:
-		attempts_left = -1
-	if att_obj.correct or attempts_left<=0:
-		response_dict["attempts_left"] = attempts_left
-		response_dict["attempt_status"] = None
-		return MyJsonResponse(response_dict)
-	att_obj.attempts+= 1
-	att_obj.correct = result
-	if result:
-		attempts_left = -1
-	else:
-		attempts_left-= 1
-	response_dict["attempt_status"] = result
-	response_dict["attempts_left"] = attempts_left
-	att_obj.save()
-
-	divider = settings.CONFIG["score_divider"]
-	if result:
-		player.score+= player.curr_loc.stipend/(divider**(att_obj.attempts-1))
-		player.save()
-		response_dict["score"] = player.score
+	response_dict = OrderedDict()
+	response_dict["attempt_status"] = player.submit(user_answer)
+	response_dict["attempts_left"] = player.attempts_left()
+	response_dict["score"] = player.score
 	return MyJsonResponse(response_dict)

@@ -45,6 +45,41 @@ class Player(models.Model):
 		self.arrival_time = depart_time
 		self.curr_loc = new_loc
 
+	def attempts_left(self):
+		# returns None if self.curr_loc is None
+		# returns -1 if can't attempt because question is already correctly attempted
+		# otherwise returns number of attempts left
+		max_attempts = settings.CONFIG['max_attempts_per_question']
+		if (not self.curr_loc) or (not self.curr_loc.answer):
+			return None
+		try:
+			att_obj = Attempt.objects.get(user=self.user, question=self.curr_loc)
+			if att_obj.correct:
+				return -1
+			else:
+				return max_attempts - att_obj.attempts
+		except Attempt.DoesNotExist:
+			return max_attempts
+
+	def submit(self,user_answer):
+		if (not user_answer) or (not self.curr_loc) or (not self.curr_loc.answer):
+			# if location is None or passive or user submitted an empty string, return None
+			return None
+		result = (user_answer == self.curr_loc.answer)
+		att_obj = Attempt.objects.get_or_create(user=self.user, question=self.curr_loc)[0]
+		max_attempts = settings.CONFIG['max_attempts_per_question']
+		if att_obj.correct or att_obj.attempts >= max_attempts:
+			return None
+		att_obj.attempts+= 1
+		att_obj.correct = result
+		att_obj.save()
+
+		divider = settings.CONFIG["score_divider"]
+		if result:
+			self.score+= self.curr_loc.stipend/(divider**(att_obj.attempts-1))
+			self.save()
+		return result
+
 	contact_fields = ('name1','name2','phone1','phone2','email1','email2','bitsid1','bitsid2')
 	name1 = models.CharField(max_length=200,blank=False)
 	name2 = models.CharField(max_length=200,blank=False)
