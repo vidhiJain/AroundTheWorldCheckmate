@@ -143,3 +143,9 @@ def exit_game(request):
 	player.user.save()
 	r = {"score":player.score}
 	return JsonResponse(r)
+
+@require_safe
+def lboard(request):
+	qset = models.Player.objects.order_by('-score')[:settings.CONFIG['lboard_size']]
+	name_score_list = list(qset.values_list('user__username','score'))
+	return MyJsonResponse(name_score_list)
