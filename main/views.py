@@ -149,3 +149,37 @@ def lboard(request):
 	qset = models.Player.objects.order_by('-score')[:settings.CONFIG['lboard_size']]
 	name_score_list = list(qset.values_list('user__username','score'))
 	return MyJsonResponse(name_score_list)
+
+@require_POST
+@csrf_exempt
+@basic_auth_required
+def fly_to(request):
+	loc_name = request.body.decode('utf-8')
+	player = request.user.player
+	try:
+		new_loc = models.Question.objects.get(loc_name=loc_name)
+	except models.Question.DoesNotExist:
+		err_str = "can't fly to unknown location "+loc_name
+		return JsonResponse({"error":err_str})
+	player.fly_to(new_loc,timezone.now())
+	player.save()
+
+	response_dict = OrderedDict()
+	if new_loc.text:
+		max_attempts = settings.CONFIG['max_attempts_per_question']
+		try:
+			att_obj = models.Attempt.objects.get(user=request.user, question=new_loc)
+			if att_obj.correct:
+				response_dict["attempts_left"] = None
+				response_dict["status"] = True
+			else:
+				response_dict["attempts_left"] = max_attempts - att_obj.attempts
+				if att_obj.attempts==0:
+					response_dict["status"] = None
+				else:
+					response_dict["status"] = False
+		except models.Attempt.DoesNotExist:
+			response_dict["attempts_left"] = max_attempts
+			response_dict["status"] = None
+		response_dict["question"] = new_loc.text
+	return MyJsonResponse(response_dict)
