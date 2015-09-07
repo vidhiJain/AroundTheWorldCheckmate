@@ -185,3 +185,31 @@ def fly_to(request):
 			response_dict["status"] = None
 		response_dict["question"] = new_loc.text
 	return MyJsonResponse(response_dict)
+
+@require_POST
+@csrf_exempt
+@basic_auth_required
+def submit(request):
+	player = request.user.player
+	user_answer = request.body.decode('utf-8')
+	nullresponse = TextResponse("null")
+	if (not user_answer) or (not player.curr_loc) or (not player.curr_loc.answer):
+		# if location is None or passive or user submitted an empty string, return "null"
+		return nullresponse
+	result = (user_answer == player.curr_loc.answer)
+
+	att_obj = models.Attempt.objects.get_or_create(user=request.user, question=player.curr_loc)[0]
+	max_attempts = settings.CONFIG['max_attempts_per_question']
+	if att_obj.correct or att_obj.attempts >= max_attempts:
+		return nullresponse
+	att_obj.attempts+= 1
+	att_obj.correct = result
+	att_obj.save()
+
+	divider = settings.CONFIG["score_divider"]
+	if result:
+		player.score+= player.curr_loc.stipend/(divider**(att_obj.attempts-1))
+		player.save()
+		return TextResponse("true")
+	else:
+		return TextResponse("false")

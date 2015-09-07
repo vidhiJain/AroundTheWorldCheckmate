@@ -8,4 +8,5 @@ urlpatterns = [
 	url(r'^exit_game/$', views.exit_game, name='exit_game'),
 	url(r'^lboard/$', views.lboard, name='lboard'),
 	url(r'^fly_to/$', views.fly_to, name='fly_to'),
+	url(r'^submit/$', views.submit, name='submit'),
 ]
