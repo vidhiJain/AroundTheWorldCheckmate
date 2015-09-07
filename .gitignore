@@ -11,7 +11,7 @@ venv/
 venv2/
 venv3/
 /extstatic/
-/static/locations.json
+/static/data/
 
 # OS files
 *~
