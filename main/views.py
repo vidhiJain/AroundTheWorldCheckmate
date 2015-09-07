@@ -125,6 +125,8 @@ def user_status(request):
 	d = OrderedDict()
 	d["is_active"] = user.is_active
 	d["score"] = player.score
+	if settings.DEBUG:
+		d["dyn_score"] = player.dyn_score()
 	if player.curr_loc:
 		d["curr_loc"] = player.curr_loc.loc_name
 	else:

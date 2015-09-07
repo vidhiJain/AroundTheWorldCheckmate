@@ -24,15 +24,24 @@ class Player(models.Model):
 	# When game ends timer will stop (arrival_time=null)
 	def __str__(self):
 		return self.user.username
+
+	def dyn_score(self):
+		if self.curr_loc:
+			return self.score - (timezone.now()-self.arrival_time).total_seconds()*self.curr_loc.rent
+		else:
+			return self.score
+
+	def commit_rent(self):
+		self.fly_to(self.curr_loc,timezone.now())
+		self.save()
+
 	def fly_to(self,new_loc,depart_time):
 		# Does not save the model
 		if self.curr_loc:
 			self.score-= (depart_time-self.arrival_time).total_seconds()*self.curr_loc.rent
-			if new_loc:
+			if new_loc and new_loc!=self.curr_loc:
 				distance = Distance.objects.get(source=self.curr_loc, dest=new_loc).distance
 				self.score-= distance*settings.CONFIG["travel_cost_per_km"]
-#		elif not new_loc:
-#			return	# This prevents changing arrival_time if user is flying from None to None
 		self.arrival_time = depart_time
 		self.curr_loc = new_loc
 
