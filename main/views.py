@@ -1,7 +1,7 @@
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
-from django.views.decorators.http import require_http_methods, require_safe, require_POST
+from django.views.decorators.http import require_safe
 from django.views.decorators.csrf import csrf_exempt
 from django.core.serializers.json import DjangoJSONEncoder
 
@@ -20,43 +20,6 @@ def TextResponse(message, status=None):
 
 def MyJsonResponse(object_to_send, status=None):
 	return HttpResponse(json.dumps(object_to_send, indent=settings.JSON_INDENT_LEVEL, cls=DjangoJSONEncoder), content_type="application/json", status=status)
-
-@require_POST
-@csrf_exempt
-def register(request):
-	"""
-	Content-Type: text/plain
-
-	Possible error messages and their meanings:
-	invalid_data: The form did not pass backend validation checks. form.is_valid() returned False
-	username_taken: The username supplied for registration is already in use
-	success: The account was successfully created
-	"""
-	form = forms.PlayerForm(request.POST)
-	if not form.is_valid():
-		return TextResponse("invalid_data", status=400)
-
-	player = form.save(commit=False)
-	username = form.cleaned_data["username"]
-	password = form.cleaned_data["password"]
-	if User.objects.filter(username=username).exists():
-		return TextResponse("username_taken")
-	user = User(username=username)
-	user.set_password(password)
-	user.save()
-	player.user = user
-
-	player.score = settings.CONFIG["initial_score"]
-	loc_name = settings.CONFIG.get("initial_location")
-	if loc_name:
-		try:
-			player.curr_loc = models.Question.objects.get(loc_name=loc_name)
-		except models.Question.DoesNotExist:
-			print(loc_name,"does not exist")
-	player.arrival_time = timezone.now()
-	player.save()
-
-	return TextResponse("success")
 
 def get_user_from_auth_header(request):
 	"""
@@ -111,12 +74,66 @@ def basic_auth_required(function):
 			return TextResponse(auth_status_code, status=401)
 	return wrapper
 
-@require_safe
+def enable_CORS(method):
+	# This is a decorator
+	def outer_wrapper(function):
+		def inner_wrapper(request,*args,**kwargs):
+			if request.method=='OPTIONS':
+				response = TextResponse('')
+				response['Access-Control-Allow-Methods'] = method
+				response['Access-Control-Allow-Headers'] = "Authorization"
+			elif request.method==method:
+				response = function(request,*args,**kwargs)
+			else:
+				return HttpResponse('',content_type='text/plain',status=405)
+			response['Access-Control-Allow-Origin'] = '*'
+			return response
+		return inner_wrapper
+	return outer_wrapper
+
+@csrf_exempt
+@enable_CORS('POST')
+def register(request):
+	"""
+	Content-Type: text/plain
+
+	Possible error messages and their meanings:
+	invalid_data: The form did not pass backend validation checks. form.is_valid() returned False
+	username_taken: The username supplied for registration is already in use
+	success: The account was successfully created
+	"""
+	form = forms.PlayerForm(request.POST)
+	if not form.is_valid():
+		return TextResponse("invalid_data", status=400)
+
+	player = form.save(commit=False)
+	username = form.cleaned_data["username"]
+	password = form.cleaned_data["password"]
+	if User.objects.filter(username=username).exists():
+		return TextResponse("username_taken")
+	user = User(username=username)
+	user.set_password(password)
+	user.save()
+	player.user = user
+
+	player.score = settings.CONFIG["initial_score"]
+	loc_name = settings.CONFIG.get("initial_location")
+	if loc_name:
+		try:
+			player.curr_loc = models.Question.objects.get(loc_name=loc_name)
+		except models.Question.DoesNotExist:
+			print(loc_name,"does not exist")
+	player.arrival_time = timezone.now()
+	player.save()
+
+	return TextResponse("success")
+
+@enable_CORS('GET')
 @basic_auth_required
 def check_user(request):
 	return TextResponse("success")
 
-@require_safe
+@enable_CORS('GET')
 def user_status(request):
 	user, auth_status_code = get_user_from_auth_header(request)
 	if not user:
@@ -134,8 +151,8 @@ def user_status(request):
 	d["arrival_time"] = player.arrival_time
 	return MyJsonResponse(d)
 
-@require_POST
 @csrf_exempt
+@enable_CORS('POST')
 @basic_auth_required
 def exit_game(request):
 	player = request.user.player
@@ -150,10 +167,12 @@ def exit_game(request):
 def lboard(request):
 	qset = models.Player.objects.order_by('-score')[:settings.CONFIG['lboard_size']]
 	name_score_list = list(qset.values_list('user__username','score'))
-	return MyJsonResponse(name_score_list)
+	response = MyJsonResponse(name_score_list)
+	response['Access-Control-Allow-Origin'] = '*'
+	return response
 
-@require_POST
 @csrf_exempt
+@enable_CORS('POST')
 @basic_auth_required
 def fly_to(request):
 	loc_name = request.body.decode('utf-8')
@@ -186,8 +205,8 @@ def fly_to(request):
 		response_dict["question"] = new_loc.text
 	return MyJsonResponse(response_dict)
 
-@require_POST
 @csrf_exempt
+@enable_CORS('POST')
 @basic_auth_required
 def submit(request):
 	player = request.user.player
