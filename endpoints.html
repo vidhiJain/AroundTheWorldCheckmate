@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>API Docs for Checkmate</title>
+	<style>
+	td
+	{
+		border: 1px solid black;
+		padding: 2px 10px;
+	}
+	table
+	{
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<h2>POST /api/register/</h2>
+			<table>
+				<tr><td>Request Format</td><td>application/x-www-form-urlencoded</td></tr>
+				<tr><td>Response Format</td><td>text/plain</td></tr>
+			</table>
+			<h4>Form fields:</h4>
+			<ul>
+				<li><b>username*</b></li>
+				<li><b>password*</b></li>
+				<li><b>name1*</b></li>
+				<li><b>name2*</b></li>
+				<li><b>phone1*</b></li>
+				<li>phone2</li>
+				<li><b>email1*</b></li>
+				<li>email2</li>
+				<li>bitsid1</li>
+				<li>bitsid2</li>
+			</ul>
+			<h4>Response:</h4>
+			<ul>
+				<li><b>success</b> - (Status 200) Registration was successful</li>
+				<li><b>username_taken</b> - (Status 200) The username supplied in the form is already in use by some other team</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>GET /api/check_user/</h2>
+			<p>Checks the credentials supplied in the Authorization header</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>text/plain</td></tr>
+				<tr><td>Auth required</td><td>Basic</td></tr>
+			</table>
+			<h4>Response:</h4>
+			<ul>
+				<li><b>success</b> - (Status 200) The credentials were correct and user is allowed to play</li>
+				<li><b>inactive</b> - (Status 403) The credentials are correct but user is not allowed to play</li>
+				<li><b>wrong_login</b> - (Status 401) The credentials are incorrect</li>
+				<li>There are some other outputs as well. They all have status code 401. They arise if authorization header is corrupt or missing.</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>GET /api/user_status/</h2>
+			<p>Shows info about the user. User need not be active.</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Basic</td></tr>
+			</table>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>is_active - Whether user is allowed to play</li>
+				<li>score</li>
+				<li>curr_loc - Current location of user</li>
+				<li>arrival_time - Time when user arrived at his current location. Time is in UTC, not IST.</li>
+			</ul>
+			<h4>Example response:</h4>
+			<pre>
+{
+    "is_active": true,
+    "score": 1000,
+    "curr_loc": "Pilani",
+    "arrival_time": "2015-09-07T21:27:46.455Z"
+}
+			</pre>
+		</li>
+
+		<li>
+			<h2>POST /api/exit_game/</h2>
+			<p>Ends the game for the user and makes him inactive.</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Basic</td></tr>
+			</table>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>score</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>GET /api/lboard/</h2>
+			<p>The leaderboard</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+			</table>
+			<h4>Response format:</h4>
+			<p>Output is an array of pairs. The first element of each pair is the team name and the second element is the team's score. The pairs are arranged in decreasing order of score.</p>
+			<h4>Example response:</h4>
+			<pre>
+[
+    ["teamone", 400.0],
+    ["team2", 200.0]
+]			</pre>
+		</li>
+
+		<li>
+			<h2>POST /api/fly_to/</h2>
+			<p>Transports the user to the specified location. Deducts transportation cost and accomodation cost as well.</p>
+			<table>
+				<tr><td>Request Format</td><td>text/plain</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Basic</td></tr>
+			</table>
+			<h4>Request:</h4>
+			<p>Send in the name of the destination</p>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>score</li>
+				<li>attempts_left: -1 for locations which don't have questions. -1 for questions which have already been answered. Otherwise no. of attempts left.</li>
+				<li>question: empty string for locations without a question.</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>POST /api/submit/</h2>
+			<p>Submit an answer to the question on the current location. If the answer is correct, user's score increases by the stipend of that location divided by score_divider^(attempts-1)</p>
+			<table>
+				<tr><td>Request Format</td><td>text/plain</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Basic</td></tr>
+			</table>
+			<h4>Request:</h4>
+			<p>Send in the answer</p>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>attempt_status: true for correct answer, false for wrong answer, null if answer was not checked (because attempts were over, or it has already been correctly answered)</li>
+				<li>attempts_left: -1 for locations which don't have questions. -1 for questions which have already been answered. Otherwise no. of attempts left.</li>
+				<li>score</li>
+			</ul>
+		</li>
+	</ul>
+</body>
+</html>
