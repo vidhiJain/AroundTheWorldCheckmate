@@ -7,7 +7,7 @@ if BASE_DIR not in sys.path:
 from django.utils import timezone
 
 def end_game():
-	User.objects.exclude(username="admin").update(is_active=False)
+	User.objects.exclude(username__in=["admin","gatekeeper"]).update(is_active=False)
 	# a single database query makes sure that the game ends for everyone at the same time
 	now = timezone.now()
 	for player in Player.objects.filter(curr_loc__isnull=False):

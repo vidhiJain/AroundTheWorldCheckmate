@@ -102,6 +102,13 @@ def register(request):
 	username_taken: The username supplied for registration is already in use
 	success: The account was successfully created
 	"""
+	try:
+		gk = User.objects.get(username="gatekeeper")
+		if gk.is_active:
+			return TextResponse("reg_closed")
+	except User.DoesNotExist:
+		pass
+
 	form = forms.PlayerForm(request.POST)
 	if not form.is_valid():
 		return TextResponse("invalid_data", status=400)
