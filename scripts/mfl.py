@@ -19,6 +19,10 @@ from collections import OrderedDict
 
 def make_loc_file():
 	loc_dict = OrderedDict()
+	try:
+		os.mkdir(os.path.join(BASE_DIR, "static", "data"))
+	except FileExistsError:
+		pass
 	with open(DEFAULT_QUESTIONS_FILE_PATH) as _ques_file:
 		try:
 			ques_dict = json.load(_ques_file, object_pairs_hook=OrderedDict)

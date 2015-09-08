@@ -9,6 +9,7 @@ from django.utils import timezone
 def end_game():
 	User.objects.exclude(username__in=["admin","gatekeeper"]).update(is_active=False)
 	# a single database query makes sure that the game ends for everyone at the same time
+	reg_portal_open(False)
 	now = timezone.now()
 	for player in Player.objects.filter(curr_loc__isnull=False):
 		player.fly_to(None,now)
@@ -23,6 +24,7 @@ if __name__=="__main__":
 from django.contrib.auth.models import User
 from main.models import Player, Distance
 from django.conf import settings
+from scripts import reg_portal_open
 
 if __name__=="__main__":
 	end_game()

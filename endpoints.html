@@ -132,7 +132,7 @@
 			<h4>Response fields:</h4>
 			<ul>
 				<li>score</li>
-				<li>attempts_left: -1 for locations which don't have questions. -1 for questions which have already been answered. Otherwise no. of attempts left.</li>
+				<li>attempts_left: -1 for questions which have already been answered. Otherwise no. of attempts left. This field does not exist if the location does not have a question.</li>
 				<li>question: empty string for locations without a question.</li>
 			</ul>
 		</li>
@@ -150,7 +150,7 @@
 			<h4>Response fields:</h4>
 			<ul>
 				<li>attempt_status: true for correct answer, false for wrong answer, null if answer was not checked (because attempts were over, or it has already been correctly answered)</li>
-				<li>attempts_left: -1 for locations which don't have questions. -1 for questions which have already been answered. Otherwise no. of attempts left.</li>
+				<li>attempts_left: -1 for questions which have already been answered. Otherwise no. of attempts left. This field does not exist if the location does not have a question.</li>
 				<li>score</li>
 			</ul>
 		</li>
