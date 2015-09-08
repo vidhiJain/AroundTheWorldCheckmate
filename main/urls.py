@@ -10,4 +10,5 @@ urlpatterns = [
 	url(r'^fly_to/$', views.fly_to, name='fly_to'),
 	url(r'^submit/$', views.submit, name='submit'),
 	url(r'^loc_distr/$', views.loc_distr, name='loc_distr'),
+	url(r'^site_status/$', views.site_status, name='site_status'),
 ]

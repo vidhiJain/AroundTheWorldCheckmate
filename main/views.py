@@ -15,6 +15,8 @@ from datetime import timedelta, datetime
 from django.utils import timezone
 from django.conf import settings
 
+from scripts import status
+
 def TextResponse(message, status=None):
 	return HttpResponse(message, content_type="text/plain", status=status)
 
@@ -55,6 +57,8 @@ def get_user_from_auth_header(request):
 	user = authenticate(username=username,password=password)
 	if not user:
 		return (None,"wrong_login")
+	elif not status.get_status("game"):
+		return (user,"game_closed")
 	elif user.is_active:
 		return (user,"success")
 	else:
@@ -102,12 +106,8 @@ def register(request):
 	username_taken: The username supplied for registration is already in use
 	success: The account was successfully created
 	"""
-	try:
-		gk = User.objects.get(username="gatekeeper")
-		if gk.is_active:
-			return TextResponse("reg_closed")
-	except User.DoesNotExist:
-		pass
+	if not status.get_status("reg"):
+		return TextResponse("reg_closed")
 
 	form = forms.PlayerForm(request.POST)
 	if not form.is_valid():
@@ -176,6 +176,15 @@ def lboard(request):
 	qset = models.Player.objects.order_by('-score')[:settings.CONFIG['lboard_size']]
 	name_score_list = list(qset.values_list('user__username','score'))
 	response = MyJsonResponse(name_score_list)
+	response['Access-Control-Allow-Origin'] = '*'
+	return response
+
+@require_safe
+def site_status(request):
+	response_dict = OrderedDict()
+	for portal_type in status.PORTAL_TYPES:
+		response_dict[portal_type] = status.get_status(portal_type)
+	response = MyJsonResponse(response_dict)
 	response['Access-Control-Allow-Origin'] = '*'
 	return response
 

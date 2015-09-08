@@ -65,7 +65,7 @@
 
 		<li>
 			<h2>GET /api/user_status/</h2>
-			<p>Shows info about the user. User need not be active.</p>
+			<p>Shows info about the user. User need not be active and game need not be open.</p>
 			<table>
 				<tr><td>Request Format</td><td>-</td></tr>
 				<tr><td>Response Format</td><td>application/json</td></tr>
@@ -119,6 +119,28 @@
     ["teamone", 400.0],
     ["team2", 200.0]
 ]			</pre>
+		</li>
+
+		<li>
+			<h2>GET /api/site_status/</h2>
+			<p>Shows whether registration is open and can game be played</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>No</td></tr>
+			</table>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>reg - whether registrations are open</li>
+				<li>game - whether game can be played</li>
+			</ul>
+			<h4>Example response:</h4>
+			<pre>
+{
+    "reg": true,
+    "game": true
+}
+			</pre>
 		</li>
 
 		<li>
