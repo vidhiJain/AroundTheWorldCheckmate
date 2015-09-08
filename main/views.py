@@ -131,6 +131,7 @@ def register(request):
 		except models.Question.DoesNotExist:
 			print(loc_name,"does not exist")
 	player.arrival_time = timezone.now()
+	player.ip_address = request.META["REMOTE_ADDR"]
 	player.save()
 
 	return TextResponse("success")

@@ -18,7 +18,7 @@ class Player(models.Model):
 	score = models.FloatField()
 	curr_loc = models.ForeignKey(Question,null=True)
 	arrival_time = models.DateTimeField()
-
+	ip_address = models.GenericIPAddressField()
 	# initially timer will be paused (arrival_time=null)
 	# When a user visits a place timer will (re)start (arrival_time=timezone.now())
 	# When game ends timer will stop (arrival_time=null)
