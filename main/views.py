@@ -195,7 +195,9 @@ def fly_to(request):
 
 	response_dict = OrderedDict()
 	response_dict["score"] = player.score
-	response_dict["attempts_left"] = player.attempts_left()
+	attempts_left = player.attempts_left()
+	if attempts_left!=None:
+		response_dict["attempts_left"] = attempts_left
 	response_dict["question"] = new_loc.text
 	return MyJsonResponse(response_dict)
 
@@ -207,6 +209,8 @@ def submit(request):
 	user_answer = request.body.decode('utf-8')
 	response_dict = OrderedDict()
 	response_dict["attempt_status"] = player.submit(user_answer)
-	response_dict["attempts_left"] = player.attempts_left()
+	attempts_left = player.attempts_left()
+	if attempts_left!=None:
+		response_dict["attempts_left"] = attempts_left
 	response_dict["score"] = player.score
 	return MyJsonResponse(response_dict)
