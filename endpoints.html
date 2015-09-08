@@ -23,6 +23,7 @@
 			<table>
 				<tr><td>Request Format</td><td>application/x-www-form-urlencoded</td></tr>
 				<tr><td>Response Format</td><td>text/plain</td></tr>
+				<tr><td>Auth required</td><td>No</td></tr>
 			</table>
 			<h4>Form fields:</h4>
 			<ul>
@@ -51,7 +52,7 @@
 			<table>
 				<tr><td>Request Format</td><td>-</td></tr>
 				<tr><td>Response Format</td><td>text/plain</td></tr>
-				<tr><td>Auth required</td><td>Basic</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
 			</table>
 			<h4>Response:</h4>
 			<ul>
@@ -68,7 +69,7 @@
 			<table>
 				<tr><td>Request Format</td><td>-</td></tr>
 				<tr><td>Response Format</td><td>application/json</td></tr>
-				<tr><td>Auth required</td><td>Basic</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
 			</table>
 			<h4>Response fields:</h4>
 			<ul>
@@ -94,7 +95,7 @@
 			<table>
 				<tr><td>Request Format</td><td>-</td></tr>
 				<tr><td>Response Format</td><td>application/json</td></tr>
-				<tr><td>Auth required</td><td>Basic</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
 			</table>
 			<h4>Response fields:</h4>
 			<ul>
@@ -108,6 +109,7 @@
 			<table>
 				<tr><td>Request Format</td><td>-</td></tr>
 				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>No</td></tr>
 			</table>
 			<h4>Response format:</h4>
 			<p>Output is an array of pairs. The first element of each pair is the team name and the second element is the team's score. The pairs are arranged in decreasing order of score.</p>
@@ -125,7 +127,7 @@
 			<table>
 				<tr><td>Request Format</td><td>text/plain</td></tr>
 				<tr><td>Response Format</td><td>application/json</td></tr>
-				<tr><td>Auth required</td><td>Basic</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
 			</table>
 			<h4>Request:</h4>
 			<p>Send in the name of the destination</p>
@@ -143,7 +145,7 @@
 			<table>
 				<tr><td>Request Format</td><td>text/plain</td></tr>
 				<tr><td>Response Format</td><td>application/json</td></tr>
-				<tr><td>Auth required</td><td>Basic</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
 			</table>
 			<h4>Request:</h4>
 			<p>Send in the answer</p>
@@ -153,6 +155,41 @@
 				<li>attempts_left: -1 for questions which have already been answered. Otherwise no. of attempts left. This field does not exist if the location does not have a question.</li>
 				<li>score</li>
 			</ul>
+		</li>
+
+		<li>
+			<h2>GET /api/loc_distr/</h2>
+			<p>Gets the list of all cities categorized by attempt status. It is recommended to call this endpoint only once, after user logs in.</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
+			</table>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>passive: locations where there is no question</li>
+				<li>correct: locations where user has correctly answered the question</li>
+				<li>wrong1: locations where user has wrongly answered the question and does not have any more attempts left</li>
+				<li>wrong2: locations where user has wrongly answered the question and has more attempts left</li>
+			</ul>
+			<h4>Example Response:</h4>
+			<pre>
+{
+  "passive": [
+    "Pilani"
+  ],
+  "correct": [
+    "Hanoi",
+    "Barcelona",
+    "Istanbul"
+  ],
+  "wrong1": [
+    "Paris",
+    "Morocco"
+  ],
+  "wrong2": []
+}
+			</pre>
 		</li>
 	</ul>
 </body>
