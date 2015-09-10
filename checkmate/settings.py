@@ -62,13 +62,20 @@ WSGI_APPLICATION = CONF_DIR_NAME+'.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
-DATABASES = {
-	'default': {
-		'ENGINE': 'django.db.backends.sqlite3',
-		'NAME': os.path.join(BASE_DIR, 'sqlite3.db'),
-	}
+# Read from db.json, otherwise use default
+import json
+try:
+	with open(os.path.join(CONF_DIR, "db.json")) as _db_file:
+		DATABASES = json.load(_db_file)
+#		print("Using db.json for database settings")
+except (FileNotFoundError, ValueError):
+#	print("Using default SQLite db")
+	DATABASES = {
+		'default': {
+			'ENGINE': 'django.db.backends.sqlite3',
+			'NAME': os.path.join(BASE_DIR, 'sqlite3.db'),
+		}
 }
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/

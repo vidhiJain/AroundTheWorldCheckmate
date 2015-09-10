@@ -3,6 +3,7 @@ __pycache__/
 README.html
 output.txt
 *.db
+/checkmate/db.json
 
 /.env
 /TODO.txt
