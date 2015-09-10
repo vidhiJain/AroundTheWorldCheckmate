@@ -77,7 +77,8 @@
 				<li>is_active - Whether user is allowed to play</li>
 				<li>score</li>
 				<li>curr_loc - Current location of user</li>
-				<li>arrival_time - Time when user arrived at his current location. Time is in UTC, not IST.</li>
+				<!--<li>arrival_time - Time when user arrived at his current location. Time is in UTC, not IST.</li>-->
+				<li>stay_duration - Time which user has spent (in seconds) in his current location since he last arrived there</li>
 			</ul>
 			<h4>Example response:</h4>
 			<pre>
@@ -85,7 +86,7 @@
     "is_active": true,
     "score": 1000,
     "curr_loc": "Pilani",
-    "arrival_time": "2015-09-07T21:27:46.455Z"
+    "stay_duration": 161323.639936
 }
 			</pre>
 		</li>

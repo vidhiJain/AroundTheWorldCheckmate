@@ -156,7 +156,9 @@ def user_status(request):
 		d["curr_loc"] = player.curr_loc.loc_name
 	else:
 		d["curr_loc"] = None
-	d["arrival_time"] = player.arrival_time
+	if settings.DEBUG:
+		d["arrival_time"] = player.arrival_time
+	d["stay_duration"] = (timezone.now()-player.arrival_time).total_seconds()
 	return MyJsonResponse(d)
 
 @csrf_exempt
