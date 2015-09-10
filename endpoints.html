@@ -57,6 +57,7 @@
 			<h4>Response:</h4>
 			<ul>
 				<li><b>success</b> - (Status 200) The credentials were correct and user is allowed to play</li>
+				<li><b>game_closed</b> - (Status 403) The credentials are correct but the game cannot be played</li>
 				<li><b>inactive</b> - (Status 403) The credentials are correct but user is not allowed to play</li>
 				<li><b>wrong_login</b> - (Status 401) The credentials are incorrect</li>
 				<li>There are some other outputs as well. They all have status code 401. They arise if authorization header is corrupt or missing.</li>
@@ -139,7 +140,8 @@
 			<pre>
 {
     "reg": true,
-    "game": true
+    "game": true,
+    "lboard": false
 }
 			</pre>
 		</li>

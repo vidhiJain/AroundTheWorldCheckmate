@@ -19,17 +19,18 @@ import json
 from pprint import pprint
 
 def get_cheaters():
-	players = list(Player.objects.order_by('ip_address').values_list('user__username','ip_address','score'))
+	players = list(Player.objects.order_by('ip_address').values_list('ip_address','user__username','score'))
 	if len(players)<=1:
 		return []
 	cheaters = []
-	if players[0][1]==players[1][1]:
+	ip_index=0
+	if players[0][ip_index]==players[1][ip_index]:
 		cheaters.append(players[0])
-	if players[-1][1]==players[-2][1]:
-		cheaters.append(players[-1])
 	for i in range(1,len(players)-1):
-		if players[i-1][1]==players[i][1] or players[i+1][1]==players[i][1]:
+		if players[i-1][ip_index]==players[i][ip_index] or players[i+1][ip_index]==players[i][ip_index]:
 			cheaters.append(players[i])
+	if players[-1][ip_index]==players[-2][ip_index]:
+		cheaters.append(players[-1])
 	return cheaters
 
 if __name__=="__main__":

@@ -5,8 +5,8 @@ Code for checkmate 2015. Made using Python 3.4 and Django 1.8.
 In this checkmate, there will be 2 (or more) servers. There will be one server running Django and housing the database. The other server(s) will have all frontend stuff (HTML pages, images, css, js, etc.). Those will be simple fileservers.
 The users will load HTML pages from one of the fileservers. JS code will make ajax calls to the Django backend server.
 
-* All  files are in the folder named `static`.
-* All backend non-database data (like config) is stored in the folder named `data`.
+* All frontend files are in the folder named `static`.
+* All backend non-database data (like config and questions) is stored in the folder named `data`.
 * API endpoints are documented in endpoints.html.
 
 ### Setup:
@@ -22,11 +22,11 @@ The users will load HTML pages from one of the fileservers. JS code will make aj
 
 ### status.py:
 
-There are 2 portals: registration portal and game portal
+There are 3 portals: registration portal, game portal, leaderboard portal
 
 * When the registration portal is open, people can register and get a team account
 * When the game portal is open, people can play checkmate
-* People can always see the leaderboard
+* When the leaderboard portal is open, anyone can see the leaderboard
 
 Running the script:
 
