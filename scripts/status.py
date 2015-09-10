@@ -12,7 +12,7 @@ if __name__=="__main__":
 
 from django.contrib.auth.models import User
 
-PORTAL_TYPES = ["reg","game"]
+PORTAL_TYPES = ["reg","game","lboard"]
 
 def name_to_bool(name):
 	if name=="open": return True

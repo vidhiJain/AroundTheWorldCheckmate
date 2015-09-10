@@ -173,9 +173,12 @@ def exit_game(request):
 
 @require_safe
 def lboard(request):
-	qset = models.Player.objects.order_by('-score')[:settings.CONFIG['lboard_size']]
-	name_score_list = list(qset.values_list('user__username','score'))
-	response = MyJsonResponse(name_score_list)
+	if status.get_status('lboard'):
+		qset = models.Player.objects.order_by('-score')[:settings.CONFIG['lboard_size']]
+		name_score_list = list(qset.values_list('user__username','score'))
+		response = MyJsonResponse(name_score_list)
+	else:
+		response = TextResponse('Leaderboard is closed',status=403)
 	response['Access-Control-Allow-Origin'] = '*'
 	return response
 
