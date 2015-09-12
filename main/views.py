@@ -238,8 +238,9 @@ def submit(request):
 def loc_distr(request):
 	# gives a list of cities which are passive, correct, wrong1 (not attemptable), wrong2 (attemptable)
 	response_dict = OrderedDict()
+	user = request.user
 	max_attempts = settings.CONFIG["max_attempts_per_question"]
-	response_dict["correct"] = list(models.Attempt.objects.filter(correct=True).values_list("question__loc_name",flat=True))
-	response_dict["wrong1"] = list(models.Attempt.objects.filter(correct=False,attempts__gte=max_attempts).values_list("question__loc_name",flat=True))
-	response_dict["wrong2"] = list(models.Attempt.objects.filter(correct=False,attempts__lt=max_attempts).values_list("question__loc_name",flat=True))
+	response_dict["correct"] = list(models.Attempt.objects.filter(user=user,correct=True).values_list("question__loc_name",flat=True))
+	response_dict["wrong1"] = list(models.Attempt.objects.filter(user=user,correct=False,attempts__gte=max_attempts).values_list("question__loc_name",flat=True))
+	response_dict["wrong2"] = list(models.Attempt.objects.filter(user=user,correct=False,attempts__lt=max_attempts).values_list("question__loc_name",flat=True))
 	return MyJsonResponse(response_dict)

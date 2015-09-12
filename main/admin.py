@@ -8,7 +8,7 @@ class PlayerAdmin(admin.ModelAdmin):
 	list_display = ('user', 'score', 'arrival_time', 'curr_loc', 'ip_address')
 
 class AttemptAdmin(admin.ModelAdmin):
-	list_display = ('user', 'question', 'attempts', 'correct')
+	list_display = ('user', 'question', 'attempts', 'correct', 'attempt_time')
 
 class DistanceAdmin(admin.ModelAdmin):
 	list_display = ('source','dest','distance')
