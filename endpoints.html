@@ -76,19 +76,22 @@
 			<ul>
 				<li>is_active - Whether user is allowed to play</li>
 				<li>score</li>
-				<li>curr_loc - Current location of user</li>
 				<!--<li>arrival_time - Time when user arrived at his current location. Time is in UTC, not IST.</li>-->
 				<li>stay_duration - Time which user has spent (in seconds) in his current location since he last arrived there</li>
+				<li>attempts_left - number of attempts left at current location. -1 for correct answer. Field does not exist for passive locations</li>
+				<li>curr_loc - Current location of user</li>
+				<li>question - question text. Empty string for passive locations.</li>
 			</ul>
 			<h4>Example response:</h4>
 			<pre>
 {
     "is_active": true,
-    "score": 1000,
+    "score": 3234.27913608614,
+    "stay_duration": 2461.043512,
+    "attempts_left": -1,
     "curr_loc": "Pilani",
-    "stay_duration": 161323.639936
-}
-			</pre>
+    "question": ""
+}			</pre>
 		</li>
 
 		<li>
@@ -193,7 +196,6 @@
 			</table>
 			<h4>Response fields:</h4>
 			<ul>
-				<li>passive: locations where there is no question</li>
 				<li>correct: locations where user has correctly answered the question</li>
 				<li>wrong1: locations where user has wrongly answered the question and does not have any more attempts left</li>
 				<li>wrong2: locations where user has wrongly answered the question and has more attempts left</li>
@@ -201,9 +203,6 @@
 			<h4>Example Response:</h4>
 			<pre>
 {
-  "passive": [
-    "Pilani"
-  ],
   "correct": [
     "Hanoi",
     "Barcelona",

@@ -152,13 +152,17 @@ def user_status(request):
 	d["score"] = player.score
 	if settings.DEBUG:
 		d["dyn_score"] = player.dyn_score()
-	if player.curr_loc:
-		d["curr_loc"] = player.curr_loc.loc_name
-	else:
-		d["curr_loc"] = None
-	if settings.DEBUG:
 		d["arrival_time"] = player.arrival_time
 	d["stay_duration"] = (timezone.now()-player.arrival_time).total_seconds()
+	attempts_left = player.attempts_left()
+	if attempts_left!=None:
+		d["attempts_left"] = attempts_left
+	if player.curr_loc:
+		d["curr_loc"] = player.curr_loc.loc_name
+		d["question"] = player.curr_loc.text
+	else:
+		d["curr_loc"] = None
+		d["question"] = ""
 	return MyJsonResponse(d)
 
 @csrf_exempt
@@ -235,7 +239,6 @@ def loc_distr(request):
 	# gives a list of cities which are passive, correct, wrong1 (not attemptable), wrong2 (attemptable)
 	response_dict = OrderedDict()
 	max_attempts = settings.CONFIG["max_attempts_per_question"]
-	response_dict["passive"] = list(models.Question.objects.filter(text="").values_list("loc_name",flat=True))
 	response_dict["correct"] = list(models.Attempt.objects.filter(correct=True).values_list("question__loc_name",flat=True))
 	response_dict["wrong1"] = list(models.Attempt.objects.filter(correct=False,attempts__gte=max_attempts).values_list("question__loc_name",flat=True))
 	response_dict["wrong2"] = list(models.Attempt.objects.filter(correct=False,attempts__lt=max_attempts).values_list("question__loc_name",flat=True))
