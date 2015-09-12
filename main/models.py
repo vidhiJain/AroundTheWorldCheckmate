@@ -71,6 +71,7 @@ class Player(models.Model):
 		if att_obj.correct or att_obj.attempts >= max_attempts:
 			return None
 		att_obj.attempts+= 1
+		att_obj.attempt_time = timezone.now()
 		att_obj.correct = result
 		att_obj.save()
 
@@ -95,6 +96,7 @@ class Attempt(models.Model):
 	question = models.ForeignKey(Question)
 	attempts = models.IntegerField(default=0)
 	correct = models.BooleanField(default=False)
+	attempt_time = models.DateTimeField(null=True,default=None)
 	def __str__(self):
 		return self.user.username+" : "+self.question.loc_name
 
