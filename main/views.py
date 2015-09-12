@@ -241,6 +241,6 @@ def loc_distr(request):
 	user = request.user
 	max_attempts = settings.CONFIG["max_attempts_per_question"]
 	response_dict["correct"] = list(models.Attempt.objects.filter(user=user,correct=True).values_list("question__loc_name",flat=True))
-	response_dict["wrong1"] = list(models.Attempt.objects.filter(user=user,correct=False,attempts__gte=max_attempts).values_list("question__loc_name",flat=True))
-	response_dict["wrong2"] = list(models.Attempt.objects.filter(user=user,correct=False,attempts__lt=max_attempts).values_list("question__loc_name",flat=True))
+	response_dict["blocked"] = list(models.Attempt.objects.filter(user=user,correct=False,attempts__gte=max_attempts).values_list("question__loc_name",flat=True))
+	response_dict["wrong"] = list(models.Attempt.objects.filter(user=user,correct=False,attempts__lt=max_attempts).values_list("question__loc_name",flat=True))
 	return MyJsonResponse(response_dict)

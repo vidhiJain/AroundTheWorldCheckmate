@@ -197,8 +197,8 @@
 			<h4>Response fields:</h4>
 			<ul>
 				<li>correct: locations where user has correctly answered the question</li>
-				<li>wrong1: locations where user has wrongly answered the question and does not have any more attempts left</li>
-				<li>wrong2: locations where user has wrongly answered the question and has more attempts left</li>
+				<li>blocked: locations where user has wrongly answered the question and does not have any more attempts left</li>
+				<li>wrong: locations where user has wrongly answered the question and has more attempts left</li>
 			</ul>
 			<h4>Example Response:</h4>
 			<pre>
@@ -208,11 +208,11 @@
     "Barcelona",
     "Istanbul"
   ],
-  "wrong1": [
+  "blocked": [
     "Paris",
     "Morocco"
   ],
-  "wrong2": []
+  "wrong": []
 }
 			</pre>
 		</li>
