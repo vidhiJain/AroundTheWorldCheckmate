@@ -1,8 +1,12 @@
 {
 	"Pilani":
-	{
+	{	"country":"India",
 		"latitude": 28.3700,
-		"longitude": 75.6000
+		"longitude": 75.6000,
+		"rent":0.0,
+		"stipend":2000.00,
+		"question":"Eight friends at BITS Pilani– Nancy, Harris, Jim, Fiona, Daniel, Tony, Mary and Susan decide to go to C'not for dinner, disappointed by the mess food. When they reach there, they agree to eat at Nobles, Nancy has an idea to play a game; the loser would treat the rest of the group.The game requires them to sit in a circle. Starting from any one person, everybody calls out the name of the person second to their right, and that person is out of the game. After this the person next to them calls a name in the same manner and the game continues until two people are left.If the game starts from Mary and given that:<br> Susan is sitting just beside Mary; Tony is sitting 3rd to the left of Susan and also 3rd to the right of Fiona who is 2nd to the left of Harris. Jim is 2nd to the right of Nancy who is opposite to Tony.In the end the guy decided to treat everyone instead of the girl who lost as well.<br>So who was the guy?",
+		"answer":"Harris"
 	},
 	"Barcelona":
 	{
@@ -35,6 +39,71 @@
 		"rent": 0.0,
 		"stipend": 800.0,
 		"question": "<p>Little known to people is the large number of mathematicians France has given the world. One such mathematician in Paris, Antoine Arnauld, discovered the first multiplicative magic square. A multiplicative magic square is an arrangement of distinct numbers, usually integers, in a square grid, where the numbers in each row, and in each column, and the numbers in both diagonals, all have the same non-zero product.</p>\n<p>Consider a 3x3 multiplicative magic square with 3, 36 and 2 in the uppermost row. Find the sum of all numbers in the magic square.</p>\n<table><tr><td>3</td><td>36</td><td>2</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>",
-		"answer": "91"
-	}
+		"answer": "91",
+		"answer_format":"\\d+"
+	},
+	"Edinburgh":
+	{
+		"country": "Scotland",
+		"latitude": 55.9531,
+		"longitude": 3.1889,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question": "<p>The first Harry Potter Book was written at Nicholson’s Cafe, Edinburgh. Harry wishes to go from Edinburgh to Hogwarts whose location is accessed at 221B Baker Street, London where a detective created by Edinburgh’s Sir Doyle, Mr. Holmes stays. Holmes is present at his address only on alternate days and his friend Dr. Watson is there every fifth day. Harry is not free on weekends as he hangs out at Prince Street Gardens, Edinburgh and he can only go to Hogwarts when no one is present at  221B Baker Street. Both Holmes and Watson were home on Christmas Eve, 2015 (Thursday). Harry has to get to Hogwarts before 1 March 2016. Find how many days after Christmas are possible when he can do that.</p>",
+		"answer": "18",
+		"answer_format":"\\d+"
+	},
+	"Petronas":
+	{
+		"country": "Malaysia",
+		"latitude": 3.1578,
+		"longitude": 101.7116,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question": "<p>The Joker,Batman’s enemy,has trapped him in the second floor of the Petronas Towers.Batman now has to choose a room out of 5 in order to pursue his nemesis,with doors labelled SA,SB,SC,SD,SE and SF.The Riddler has told him that one of the doors is rigged so that the building will explode if that door is opened.The Joker,as a parting message,says”Try twisting Petronas..”. Which door did Batman avoid?</p>",
+		"answer": "SE"
+	},
+	"Athens":
+	{
+		"country": "Greece",
+		"latitude": 37.9667,
+		"longitude": 23.7167,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question": "The ancient Athenians were renowned for being master artisans and craftsmen who fashioned various works of art structures.They want to construct ten poles.Based on the given statements, select the most appropriate option to solve the given question What will be the total weight of 10 poles each of same weight? Statements (I) One fourth of the weight of a pole is 15kg. (II) The total weight of these poles is 160 kg more than the total weight of two poles (A) Statement I alone is not sufficient (B) Statement II alone is not sufficient (C) Either I or II alone is sufficient (D) Both statements I and II together are not sufficient.",
+		"answer": "C"
+	},	
+	"Sydney":
+	{
+		"country": "Greece",
+		"latitude": 37.9667,
+		"longitude": 23.7167,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question": "The ancient Athenians were renowned for being master artisans and craftsmen who fashioned various works of art structures.They want to construct ten poles.Based on the given statements, select the most appropriate option to solve the given question What will be the total weight of 10 poles each of same weight? Statements (I) One fourth of the weight of a pole is 15kg. (II) The total weight of these poles is 160 kg more than the total weight of two poles (A) Statement I alone is not sufficient (B) Statement II alone is not sufficient (C) Either I or II alone is sufficient (D) Both statements I and II together are not sufficient.",
+		"answer": "C"
+	},	
+	"Cusco":
+	{
+		"country": "Peru",
+		"latitude": -13.5250,
+		"longitude": -71.9722,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question":"Cusco is an incredible hub for outdoor discoveries. Whether one is a serious adventurer, history buff or general sightseer, the treasures will capture your senses . There are many ruins and places to visit within short distances of Cusco. The kilke people who occupied the region from 900 to 1200, had constructed Saksaywaman, the walled complex outside Cusco at about 1100.recently the archaeologists discovered the ruins of an ancient temple, roadway and queduct system at Saksaywaman. But along with it the local people started hearing strange noises in the night and there were strange disappearances .The temple covers some 11 rooms thought to have held idols and mummies, establishing its religious purpose.To save the world from the wrath of the mummies whose sleep has been disturbed due to the excavation the mayor Luis Florez decides to go the temple and find the mummies. On entering the temple he goes 90 meters in the east before turning to his right. Then he hears a noise but keeps walking and goes 20 meters ahead before turning to is right again .he walks to a skull 30 meters from this point. Scared as hell he starts running north to around 100 meters before he reaches the stairs. He climbs the stairs and there in front of him there is a locked gate..all of a sudden he hears a voice saying 'hello Luis..the gate will open only if you will answer this question..how far are you from the temple gate?' can u help Luis solve this question by telling him how far he isfrom the starting point?",
+		"answer": "125",
+		"answer_format":"\\d+"
+	},	
+	"Istanbul":
+	{
+		"country": "Turkey",
+		"latitude": 41.0136,
+		"longitude": 28.9550,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question": "According to the turkish folklore, a smart man named Mullah Nassirudin once lived in Istanbul. During a grand celebration the king challenged the people from all over turkey to solve a mathematical puzzle. The puzzle was simply a series of numbers and the next number was to be guessed. Among all the people only Mullah Nassirudin was able to solve this puzzle. Can you guess the next number in the series?<br>ub
+		4,6,12,18,30,42,60,_",
+		"answer": "72",
+		"answer_format":"\\d+"
+	},	
 }
