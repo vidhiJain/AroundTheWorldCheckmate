@@ -12,7 +12,7 @@ venv/
 venv2/
 venv3/
 /extstatic/
-/static/data/
+/static/locations.*
 
 # OS files
 *~

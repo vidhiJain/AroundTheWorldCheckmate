@@ -8,8 +8,8 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEFAULT_QUESTIONS_FILE_PATH = os.path.join(BASE_DIR, "data", "questions.json")
-DEFAULT_LOCATIONS_FILE_PATH = os.path.join(BASE_DIR, "static", "data", "locations.json")
-DEFAULT_JSONP_LOCATIONS_FILE_PATH = os.path.join(BASE_DIR, "static", "data", "locations.js")
+DEFAULT_LOCATIONS_FILE_PATH = os.path.join(BASE_DIR, "static", "locations.json")
+DEFAULT_JSONP_LOCATIONS_FILE_PATH = os.path.join(BASE_DIR, "static", "locations.js")
 
 REQUIRED_FIELDS = ('latitude','longitude')
 OPTIONAL_FIELDS = ('country','rent','stipend')
@@ -19,10 +19,6 @@ from collections import OrderedDict
 
 def make_loc_file():
 	loc_dict = OrderedDict()
-	try:
-		os.mkdir(os.path.join(BASE_DIR, "static", "data"))
-	except FileExistsError:
-		pass
 	with open(DEFAULT_QUESTIONS_FILE_PATH) as _ques_file:
 		try:
 			ques_dict = json.load(_ques_file, object_pairs_hook=OrderedDict)
