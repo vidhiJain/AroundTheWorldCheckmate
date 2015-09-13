@@ -1,199 +1,195 @@
 <!DOCTYPE HTML>
 <html>
-  <head>
-  <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>-->
-  <script src="js/jquery.min.js"></script>
-    <script src="v2/api.js"></script>
-    <script>
-    var on_sidebar=true;
-    function sidebar(){
-      if(on_sidebar==true)
-      {
-        $('#sidebar').animate({left:'-20%'},200);
-        $('#earth_div').animate({width:'100%',left:'0%'},200);
-        on_sidebar=false;
-      }
-      else{
-        $('#sidebar').animate({left:'0%'},200);
-        $('#earth_div').animate({width:'80%',left:'20%'},200);
-        on_sidebar=true;
-      }
-    }
-      //Declaring the variable earth
-      var earth;
+<head>
+<meta charset="utf-8">
+<title>Around The World - Checkmate</title>
+<script src="js/jquery.min.js"></script>
+<script src="js/nano.js"></script>
+<script src="v2/api.js"></script>
+<script src="./locations.js"></script>
+<script src="js/script.js"></script>
+<script src="js/server_req.js"></script>
+<link rel="stylesheet" type="text/css" href="css/nanoscroller.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script>
 
-      //function to show the LightBox
-      function showLightBox(){
-          document.getElementById('light').style.display='block';
-          document.getElementById('fade').style.display='block';
-        }
-
-      //Intialise the webGl Earth
-      function initialize() {
-        var options = {
-          minZoom: 0,
-          maxZoom: 5,
-          minAltitude:500000,
-          maxAltitude: 20000000,
-          tileSize: 256,
-          bounds: [[-85, -180], [85, 180]],
-          tms: true,
-          attribution: 'Around The World - Checkmate',
-        }
-        earth = new WE.map('earth_div', options);
-        earth.setView([46.8011, 8.2266], 2);
-        WE.tileLayer('{z}/{x}/{y}.jpg',options).addTo(earth);
-
-        //Displaying Marker -12523442.714243278 -9019892.870738905 12523442.714243278 16026992.557747653
-        var marker=WE.marker([51.5, -0.09]).addTo(earth);
-          marker.bindPopup(
-            "<a href = '#' onclick = 'showLightBox()'><div><b><center>London</center></b><br><span style='font-size:10px;color:#999'>'Cost of Accomodation: $40/min'</span></div></a>", {maxWidth: 150, closeButton: true}).openPopup();
-      }
+</script>
+<style>
+</style>
+</head>
+<body>
+<div id="container" class="abs_center">
+	<div id="earth_div"></div>
+</div>
+<div id="top_cont">
+	<div id="top_team_name">ACM</div>
+	<img src="img/logo.png" alt="Checkmate">
+	<div id="top_team_score">0</div>
+</div>
+<div id="sidebar_toggle" onclick="sidebar()">Cities</div>
 
 
-      //function to Fly to a place
-      function panTo(coords) {
-        earth.panTo(coords);
-      }
-    </script>
-    <style type="text/css">
-      html, body{padding: 0; margin: 0;}
-      #header {
-          height:5%;
-          background:#F0F0F0;
-          border:1px solid #CCC;
-          width:960px;
-          margin:0px auto;
-          position :fixed;
-      }
-      #earth_div{
-        top: 10%; right: 0; bottom: 0; left: 20%;
-        position: absolute !important;
-        height: 90%;
-        background-image: -webkit-gradient(
-           linear,
-           left bottom,
-           left top,
-           color-stop(0, rgb(253,253,253)),
-           color-stop(0.15, rgb(253,253,253)),
-           color-stop(0.53, rgb(223,223,223)),
-           color-stop(0.56, rgb(255,255,255)),
-           color-stop(1, rgb(253,253,253))
-           );
-        background-image: -moz-linear-gradient(
-           center bottom,
-           rgb(253,253,253) 0%,
-           rgb(253,253,253) 15%,
-           rgb(223,223,223) 53%,
-           rgb(255,255,255) 56%,
-           rgb(253,253,253) 100%
-           );
-        z-index:1;
-        width:80%;
-
-      }
-      #sidebar{
-        top:10%;
-        width:20%;
-        height: 90%;
-        overflow:auto;
-        position: absolute;
-        z-index: 500;
-      }
-
-      .btn {
-      display.: inline-block;
-      /*padding: 20px 40px;*/
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
-      border: 2px solid #ddd;
-      color: #ddd;
-      text-decoration: none;
-      /*margin: 0px 10px 10px 0;*/
-      transition: all .6s;
-      min-width: 100px;
-      width: 100%;
-      text-align: center;
-
-      }
-      .btn:hover {
-          background: #ddd;
-          color: #fff;
-      }
-      .btn.color-5 {border-color: #2C3E50;color: #fff;background:#2C3E50;}
-      .btn.color-5:hover {color:#2C3E50;background: #ddd;font-size:20px;}
-
-      .black_overlay{
-      display: none;
-      position: absolute;
-      top: 0%;
-      left: 0%;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      z-index:1001;
-      -moz-opacity: 0.8;
-      opacity:.80;
-      filter: alpha(opacity=80);
-      }
-      .white_content {
-        display: none;
-        position: absolute;
-        top: 25%;
-        left: 25%;
-        width: 50%;
-        height: 50%;
-        padding: 16px;
-        border: 16px solid orange;
-        background-color: white;
-        z-index:1002;
-        overflow: auto;
-      }
-
-      </style>
-    <title>Around The World - Checkmate</title>
-  </head>
-  <body onload="initialize()">
-    <div id="container">
-      <div id="header">
-        <div id="game-title">
-          Around The World - Checkmate
-        </div>
-        <div id="market">
-          Market Place
-        </div>
-      </div>
-
-      <div id="earth_div"></div>
-      <div id="sidebar">
-        <div id="nav_buttons" >
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to Islamabad" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-          <input type="button" class="btn color-5" value="Fly to London" onclick="panTo([51.5, -0.09])"><br>
-        </div>
-      </div>
-      <!--LightBox-->
-      <div id="light" class="white_content">
-        This is the lightbox content.
-        <a href = "javascript:void(0)" onclick = "document.getElementById('light').style.display='none';document.getElementById('fade').style.display='none'">Close</a></div>
-      <div id="fade" class="black_overlay"></div>
+<div id="sidebar" class="nano">
+    <div class="nano-content">
+		   <!-- <div class="menuitem">Place1</div> -->
     </div>
-  </body>
+</div>
+
+
+
+<div id="bottom_cont">
+    <div id="leaderboard">L</div>
+    <div id="currLoc" onclick="open_lb()" style="width:230px;">Pilani</div>
+    <div id="timer">00:10</div>
+</div>
+<div id="overlay" class="abs_center"></div>
+<!-- questions lightbox -->
+<div id="ques_lb" class="abs_center">
+    <div class="main_cont abs_center">
+        <div id="stopwatch" onclick="start_stop()">00:00</div>
+        <div id="close_lb" onclick="close_lb()">&times;</div>
+        <div id="loc_info">London</div>
+		<div id="ques_cont" class="nano">
+		    <div class="nano-content">
+				   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis odio perferendis, voluptas molestiae tempora ad quaerat, nulla a vitae neque modi impedit ipsam facilis, voluptatibus temporibus nemo. Quis modi praesentium reprehenderit accusantium consequatur veritatis vero qui dolore ab magnam assumenda commodi officiis aliquam mollitia, quos autem eum corrupti veniam at!
+        	</div>
+		</div>
+            
+        <div id="ans_cont">
+            <form onsubmit="return false;">
+                <input type="text" name="g_answer" required autocomplete="off" />
+                <button type="submit" class="button" style="font-size:1em;">Submit</button>
+            </form>
+        </div>
+    </div>
+    <div class="info">i</div>
+    <div class="display">
+        <p>
+            Attempts Left: <span id="attempt_left">0</span>
+            <br>
+            Cost of accomodation:<span id="coa">10000</span>
+        </p>
+    </div>
+</div>
+<!--  -->
+<!-- My alert -->
+<div id="myalert">
+	<div id="alert_topBar">Checkmate</div>
+	<div id="alert_message">This is the message I want to give</div>
+	<div id="alert_controls">
+		<div id="alert_cancel" onclick="close_alert()">Cancel</div>
+		<div id="alert_ok" onclick="confirm_alert()">Confirm</div>
+	</div>
+</div>
+<!-- myalert END********** -->
+<!-- registration form -->
+<div id="registration_login" class="abs_center">
+<div class="form">
+	<ul class="tab-group">
+		<li class="tab"><a href="#register">Register</a></li>
+		<li class="tab active"><a href="#login">Log In</a></li>
+	</ul>
+
+	<div class="tab-content">
+	
+		<div id="register">             
+			<form id="reg_form" onsubmit="return false;">
+				<div class="halfCol">
+					<div class="field-wrap">
+						<div class="infoHead">Player 1 Details</div>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="name1" class="required" autocomplete="off" />
+						<label>Name<span class="req">*</span></label>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="bitsid1" autocomplete="off" />
+						<label>BITS ID</label>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="email1" class="required" autocomplete="off" />
+						<label>Email<span class="req">*</span></label>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="phone1" class="required" autocomplete="off" />
+						<label>Contact No.<span class="req">*</span></label>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+					</div>
+				</div>
+				<div class="halfCol">
+					<div class="field-wrap">
+						<div class="infoHead">Player 2 Details</div>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="name2" class="required" autocomplete="off" />
+						<label>Name<span class="req">*</span></label>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="bitsid2" autocomplete="off" />
+						<label>BITS ID</label>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="email2" autocomplete="off" />
+						<label>Email</label>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+					</div>
+					<div class="field-wrap">
+						<input type="text" name="phone2" autocomplete="off" />
+						<label>Contact No.</label>
+						<span class="highlight"></span>
+						<span class="bar"></span>
+					</div>
+				</div>
+				<div class="field-wrap fwcenter">
+					<input type="text" name="username" class="required" autocomplete="off"/>
+					<label>Team Name<span class="req">*</span></label>
+					<span class="highlight"></span>
+					<span class="bar"></span>
+				</div>
+
+				<div class="field-wrap fwcenter">
+					<input type="password" name="password" class="required" autocomplete="off"/>
+					<label>Set A Password<span class="req">*</span></label>
+					<span class="highlight"></span>
+					<span class="bar"></span>
+				</div>
+
+				<button type="submit" class="button button-block"/>Get Started</button>
+			</form>
+		</div>
+
+		<div id="login">
+			<form id="login_form" onsubmit="return false;">
+				<div class="field-wrap fwcenter">
+					<input name="team_name" type="text" class="required" autocomplete="off"/>
+					<label>Team Name<span class="req">*</span></label>
+					<span class="highlight"></span>
+					<span class="bar"></span>
+				</div>
+
+				<div class="field-wrap fwcenter">
+					<input name="team_password" type="password" class="required" autocomplete="off"/>
+					<label>Password<span class="req">*</span></label>
+					<span class="highlight"></span>
+					<span class="bar"></span>
+				</div>
+				<button type="submit" class="button button-block"/>Log In</button>
+			</form>
+		</div>
+	</div><!-- tab-content -->
+</div> <!-- /form -->
+</div>
+</body>
 </html>
