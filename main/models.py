@@ -65,7 +65,7 @@ class Player(models.Model):
 		if (not user_answer) or (not self.curr_loc) or (not self.curr_loc.answer):
 			# if location is None or passive or user submitted an empty string, return None
 			return None
-		result = (user_answer == self.curr_loc.answer)
+		result = (user_answer.lower() == self.curr_loc.answer.lower())
 		att_obj = Attempt.objects.get_or_create(user=self.user, question=self.curr_loc)[0]
 		max_attempts = settings.CONFIG['max_attempts_per_question']
 		if att_obj.correct or att_obj.attempts >= max_attempts:

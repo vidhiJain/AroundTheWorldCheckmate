@@ -1,7 +1,7 @@
 var earth, user, user64="", server_ip,confirm_type=0,place="";
 $(function() {
-	// server_ip = "http://172.17.1.186:15130/";
-	server_ip = "http://192.168.231.108:15130/";
+	 server_ip = "http://172.17.1.186:15130/";
+//	server_ip = "http://192.168.231.108:15130/";
 
 	// form input label animation
 	$('.form input').blur(function() {

@@ -27,6 +27,7 @@ def set_data_from_file(file_path):
 	ques_dict = json.load(open(file_path))
 	print("Loading locations...")
 	Question.objects.all().delete()
+	User.objects.all().delete()
 	for loc_name, ques in ques_dict.items():
 		db_ques = Question(loc_name=loc_name)
 		fields = ('answer','rent','stipend')
@@ -56,6 +57,7 @@ if __name__=="__main__":
 	django.setup()
 
 from main.models import Question, Distance
+from django.contrib.auth.models import User
 from django.conf import settings
 
 if __name__=="__main__":
