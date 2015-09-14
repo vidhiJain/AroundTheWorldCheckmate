@@ -27,7 +27,7 @@ def set_data_from_file(file_path):
 	ques_dict = json.load(open(file_path))
 	print("Loading locations...")
 	Question.objects.all().delete()
-	User.objects.all().delete()
+	User.objects.exclude(player__isnull=True).delete()
 	for loc_name, ques in ques_dict.items():
 		db_ques = Question(loc_name=loc_name)
 		fields = ('answer','rent','stipend')

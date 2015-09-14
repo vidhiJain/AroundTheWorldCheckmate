@@ -26,9 +26,9 @@ def bool_to_name(is_open):
 def set_status(portal_type,is_open):
 	if portal_type in PORTAL_TYPES:
 		try:
-			gk = User.objects.get(username=portal_type+"gatekeeper")
+			gk = User.objects.get(username=portal_type+"_gatekeeper")
 		except User.DoesNotExist:
-			gk = User(username=portal_type+"gatekeeper",is_staff=True)
+			gk = User(username=portal_type+"_gatekeeper",is_staff=True)
 			gk.set_unusable_password()
 		gk.is_active = (not is_open)
 		gk.save()
@@ -40,7 +40,7 @@ def set_all(is_open):
 def get_status(portal_type):
 	if portal_type in PORTAL_TYPES:
 		try:
-			gk = User.objects.get(username=portal_type+"gatekeeper")
+			gk = User.objects.get(username=portal_type+"_gatekeeper")
 			return not gk.is_active
 		except User.DoesNotExist:
 			return True
