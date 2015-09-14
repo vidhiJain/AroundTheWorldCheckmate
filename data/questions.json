@@ -168,7 +168,7 @@
 		"stipend": 800.0,
 		"question":
 		"<p>Prague Castle is a castle complex in Prague, Czech Republic, dating from the 9th century and the official residence of the President of the Czech Republic. The castle was a seat of power for kings of Bohemia, Holy Roman emperors, and presidents of Czechoslovakia.</p>\n<p>A stark raving mad king tells his 100 wisest men he is about to line them up and that he will place either a red or blue hat on each of their heads. Once lined up, they must not communicate amongst themselves. Nor may they attempt to look behind them or remove their own hat. The king tells the wise men that they will be able to see all the hats in front of them. They will not be able to see the color of their own hat or the hats behind them, although they will be able to hear the answers from all those behind them.</p>\n<p>The king will then start with the wise man in the back and ask \"what color is your hat?\" The wise man will only be allowed to answer \"red\" or \"blue\", nothing more. If the answer is incorrect then the wise man will be silently killed. If the answer is correct then the wise man may live but must remain absolutely silent.</p>\n<p>The king will then move on to the next wise man and repeat the question. The king makes it clear that if anyone breaks the rules then all the wise men will die, then allows the wise men to consult before lining them up. The king listens in while the wise men consult each other to make sure they don't devise a plan to cheat. To communicate anything more than their guess of red or blue by coughing or shuffling would be breaking the rules. What is the maximum number of men they can guarantee to save?</p>",
-		"answer": "99",
+		"answer": "99"
 	},
 	"Buenos Aires":
 	{
