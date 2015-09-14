@@ -18,7 +18,7 @@
 		"question":
 		"Barcelona is famous for its football club 'FC Barcelona'. It has many talented players like Messi, Xavi, Iniesta. Sam is a big fan of FC Barcelona. He spends most of his time playing football. He also knows how to make a football given the raw materials and the right tools.<br />\nA classic football is made up of 20 regular hexagonal faces and 12 regular pentagonal faces. Sam tries to make a football using more number of faces (a face should either be hexagonal or pentagonal). He realized that this cannot be done using regular polygons. So he tried using irregular convex hexagons and pentagons. He was finally able to make one.<br />\nHis football contains 25 hexagonal faces. How many pentagonal faces does it have?",
 		"answer": "12",
-		"answer_format": "\\d+"
+		"solution": "The answer will be 12 regardless of the number of hexagons. Use Euler's formula for polyhedrons. https://en.wikipedia.org/wiki/Fullerene#Other_buckyballs"
 	},
 	"Hanoi":
 	{
@@ -27,9 +27,9 @@
 		"longitude": 105.8542,
 		"rent": 0.0,
 		"stipend": 800.0,
-		"question": "<p>Hanoi, the capital of Vietnam, is famous for having over 600 temples and monasteries. According to a legend, there is a hidden monastery in Hanoi. That monastery has 3 vertical rods arranged in a line, and a number of disks of different sizes which can slide onto any rod. Every morning, the principal monk (their guru) arranges the disks in a neat stack in ascending order of size on one rod, the smallest at the top, thus making a conical shape. He gives his disciple monks the task to move the entire stack to another rod, obeying the following simple rules:</p>\n<ol>\n<li>Only one disk can be moved at a time.</li>\n<li>Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.</li>\n<li>No disk may be placed on top of a smaller disk.</li>\n<li>A disk can only be moved to an adjacent rod.</li>\n</ol>\n<p>He claims that if a monk is able to successfully complete this task, he/she will gain enlightenment.</p>\n<p>If the stack is made of 8 disks and a monk takes 5 seconds to move a disk, what is the minimum time (in seconds) in which he/she can gain enlightenment?</p>",
+		"question": "<p>Hanoi, the capital of Vietnam, is famous for having over 600 temples and monasteries. According to a legend, there is a hidden monastery in Hanoi. That monastery has 3 vertical rods (the left rod, the middle rod, the right rod) arranged in a line, and a number of disks of different sizes which can slide onto any rod. Every morning, the principal monk (their guru) arranges the disks in a neat stack in ascending order of size on the left rod, the smallest disk at the top, thus making a conical shape. He gives his disciple monks the task to move the entire stack to the right rod, obeying the following simple rules:</p>\n<ol>\n<li>Only one disk can be moved at a time.</li>\n<li>Each move consists of taking the upper disk from one of the stacks and placing it on top of another stack i.e. a disk can only be moved if it is the uppermost disk on a stack.</li>\n<li>No disk may be placed on top of a smaller disk.</li>\n<li>A disk can only be moved to an adjacent rod.</li>\n</ol>\n<p>He claims that if a monk is able to successfully complete this task, he/she will gain enlightenment.</p>\n<p>If the stack is made of 8 disks and a monk takes 5 seconds to move a disk, what is the minimum time (in seconds) in which he/she can gain enlightenment?</p>",
 		"answer": "32800",
-		"answer_format": "\\d+"
+		"solution": "Let f(n) be the minimum number of moves for a stack of size n. Then f(n) = 3*f(n-1)+2. Solve to get f(n) = 3^n-1. Answer is 5*f(8)."
 	},
 	"Paris":
 	{
@@ -38,20 +38,19 @@
 		"longitude": 2.3508,
 		"rent": 0.0,
 		"stipend": 800.0,
-		"question": "<p>Little known to people is the large number of mathematicians France has given the world. One such mathematician in Paris, Antoine Arnauld, discovered the first multiplicative magic square. A multiplicative magic square is an arrangement of distinct numbers, usually integers, in a square grid, where the numbers in each row, and in each column, and the numbers in both diagonals, all have the same non-zero product.</p>\n<p>Consider a 3x3 multiplicative magic square with 3, 36 and 2 in the uppermost row. Find the sum of all numbers in the magic square.</p>\n<table><tr><td>3</td><td>36</td><td>2</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td></td><td></td></tr></table>",
+		"question": "<p>Little known to people is the large number of mathematicians France has given the world. One such mathematician in Paris, Antoine Arnauld, discovered the first multiplicative magic square. A multiplicative magic square is an arrangement of distinct numbers, usually integers, in a square grid, where the numbers in each row, and in each column, and the numbers in both diagonals, all have the same non-zero product.</p>\n<p>Consider a 3x3 multiplicative magic square with 3, 36 and 2 in the uppermost row. Find the sum of all numbers in the magic square.</p>",
 		"answer": "91",
-		"answer_format":"\\d+"
+		"solution": "The magic product is 216. The number in the centre of a 3x3 mult magic square is always the cube root of the magic product."
 	},
 	"Edinburgh":
 	{
 		"country": "Scotland",
 		"latitude": 55.9531,
-		"longitude": 3.1889,
+		"longitude": -3.1889,
 		"rent": 0.0,
 		"stipend": 800.0,
-		"question": "<p>The first Harry Potter Book was written at Nicholson’s Cafe, Edinburgh. Harry wishes to go from Edinburgh to Hogwarts whose location is accessed at 221B Baker Street, London where a detective created by Edinburgh’s Sir Doyle, Mr. Holmes stays. Holmes is present at his address only on alternate days and his friend Dr. Watson is there every fifth day. Harry is not free on weekends as he hangs out at Prince Street Gardens, Edinburgh and he can only go to Hogwarts when no one is present at  221B Baker Street. Both Holmes and Watson were home on Christmas Eve, 2015 (Thursday). Harry has to get to Hogwarts before 1 March 2016. Find how many days after Christmas are possible when he can do that.</p>",
-		"answer": "18",
-		"answer_format":"\\d+"
+		"question": "<p>The first Harry Potter Book was written at Nicholson’s Cafe, Edinburgh. Harry wishes to go from Edinburgh to Hogwarts whose location is accessed at 221B Baker Street, London where a detective created by Edinburgh’s Sir Doyle, Mr. Holmes stays. Holmes is present at his address only on alternate days and his friend Dr. Watson is there every fifth day. Harry is not free on weekends as he hangs out at Prince Street Gardens, Edinburgh and he can only go to Hogwarts when no one is present at 221B Baker Street. Both Holmes and Watson were home on Christmas Eve, 2015 (Thursday). Harry has to get to Hogwarts before 1 March 2016. How many days after Christmas are possible when he can do that?</p>",
+		"answer": "18"
 	},
 	"Petronas":
 	{
@@ -60,8 +59,9 @@
 		"longitude": 101.7116,
 		"rent": 0.0,
 		"stipend": 800.0,
-		"question": "<p>The Joker,Batman’s enemy,has trapped him in the second floor of the Petronas Towers. Batman now has to choose a room out of 5 in order to pursue his nemesis,with doors labelled SA,SB,SC,SD,SE and SF. The Riddler has told him that one of the doors is rigged so that the building will explode if that door is opened. The Joker,as a parting message,says”Try twisting Petronas..”. Which door did Batman avoid?</p>",
-		"answer": "SE"
+		"question": "<p>The Joker, Batman’s enemy, has trapped him in the second floor of the Petronas Towers. Batman now has to choose a room out of 6 in order to pursue his nemesis, with doors labelled SA, SB, SC, SD, SE and SF. The Riddler has told him that one of the doors is rigged so that the building will explode if that door is opened. The Joker, as a parting message, says \"Try twisting Petronas..\". Which door did Batman avoid (assume he safely got out)?</p>",
+		"answer": "SE",
+		"solution": "On rearranging the letters of (twisting) 'Petronas', we get 'Trap on SE'."
 	},
 	"Athens":
 	{
@@ -80,9 +80,8 @@
 		"longitude": -71.9722,
 		"rent": 0.0,
 		"stipend": 800.0,
-		"question":"Cusco is an incredible hub for outdoor discoveries. Whether one is a serious adventurer, history buff or general sightseer, the treasures will capture your senses. There are many ruins and places to visit within short distances of Cusco. The kilke people who occupied the region from 900 to 1200, had constructed Saksaywaman, the walled complex outside Cusco at about 1100. recently the archaeologists discovered the ruins of an ancient temple, roadway and queduct system at Saksaywaman. But along with it the local people started hearing strange noises in the night and there were strange disappearances. The temple covers some 11 rooms thought to have held idols and mummies, establishing its religious purpose. To save the world from the wrath of the mummies whose sleep has been disturbed due to the excavation the mayor Luis Florez decides to go the temple and find the mummies. On entering the temple he goes 90 meters in the east before turning to his right. Then he hears a noise but keeps walking and goes 20 meters ahead before turning to is right again. he walks to a skull 30 meters from this point. Scared as hell he starts running north to around 100 meters before he reaches the stairs. He climbs the stairs and there in front of him there is a locked gate.. all of a sudden he hears a voice saying 'hello Luis.. the gate will open only if you will answer this question.. how far are you from the temple gate?' can u help Luis solve this question by telling him how far he isfrom the starting point?",
-		"answer": "125",
-		"answer_format":"\\d+"
+		"question":"Cusco is an incredible hub for outdoor discoveries. Whether one is a serious adventurer, history buff or general sightseer, the treasures will capture your senses. There are many ruins and places to visit within short distances of Cusco. The kilke people who occupied the region from 900 to 1200, had constructed Saksaywaman, the walled complex outside Cusco at about 1100. Recently the archaeologists discovered the ruins of an ancient temple, roadway and aqueduct system at Saksaywaman. But along with it the local people started hearing strange noises in the night and there were strange disappearances. The temple covers some 11 rooms thought to have held idols and mummies, establishing its religious purpose. To save the world from the wrath of the mummies whose sleep has been disturbed due to the excavation the mayor Luis Florez decides to go the temple and find the mummies. On entering the temple he goes 90 meters in the east before turning to his right. Then he hears a noise but keeps walking and goes 20 meters ahead before turning to his right again. He walks to a skull 30 meters from this point. Scared as hell he starts running north to around 100 meters before he reaches a ladder. He climbs the ladder and there in front of him there is a locked gate. All of a sudden he hears a voice saying \"hello Luis.. the gate will open only if you will answer this question.. how far are you from the temple gate?\". Can you help Luis solve this question by telling him how far he is from the starting point (in meters)?",
+		"answer": "100"
 	},
 	"Istanbul":
 	{
@@ -92,7 +91,61 @@
 		"rent": 0.0,
 		"stipend": 800.0,
 		"question": "According to the turkish folklore, a smart man named Mullah Nassirudin once lived in Istanbul. During a grand celebration the king challenged the people from all over turkey to solve a mathematical puzzle. The puzzle was simply a series of numbers and the next number was to be guessed. Among all the people only Mullah Nassirudin was able to solve this puzzle. Can you guess the next number in the series?<br>4,6,12,18,30,42,60,_",
-		"answer": "72",
-		"answer_format":"\\d+"
+		"answer": "72"
+	},
+	"Zermatt":
+	{
+		"country": "Switzerland",
+		"latitude": 46.0167,
+		"longitude": 7.7500,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question":
+		"Once Bill was visiting the MatterHorn Museum, Zermatt. In the amateur’s exhibition, he saw a painting of three children which really appealed to him. He went to meet the painter and was surprised to see that it was his old friend Steve.<br />\nBill: Hey! How are you man?<br />\nSteve: Not bad, got married and have three kids now. They are the kids in my painting.<br />\nBill: That’s awesome. How old are they?<br />\nSteve: The product of their ages is 72 and the sum of their ages is the same as your birth date.<br />\nBill: Hmm... I still don’t get it.<br />\nSteve: My eldest kid is trying to learn the guitar.<br />\nBill: Oh I get it now.<br />\nWhat’s the sum of ages of the kids? (The painting in question does not reveal anything about the ages of the kids)",
+		"answer": "14",
+		"solution": "3,3,8"
+	},
+	"Manhattan":
+	{
+		"country": "USA",
+		"latitude": 40.7903,
+		"longitude": -73.9597,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question": "Once a cult group went to visit the Statue of Liberty on Liberty Island, Manhattan. On this island there were 100 blue eyed people, 100 brown eyed people, and the Guru (she happens to have green eyes). So any given blue-eyed person can see 100 people with brown eyes and 99 people with blue eyes (and one with green), but that does not tell him his own eye color; as far as he knows the totals could be 101 brown and 99 blue. Or 100 brown, 99 blue, and he could have red eyes. Nobody is aware of the colour of their own eyes beforehand.<br />\nTo test her followers, the Guru decided to keep them confined on Liberty Island. Every night at midnight, a ferry stopped at the island. Any islander who figured out the color of their own eyes then left the island, and the rest stayed. Everyone can see everyone else at all times and keeps a count of the number of people they see with each eye color (excluding themselves), but they cannot otherwise communicate. Everyone on the island knows all the rules in this paragraph. They are all perfect logicians if a conclusion can be logically deduced, they will do it instantly. They have adequate resources to stay on the island for years together. Before beginning, the Guru speaks one sentence: \"I can see someone who has blue eyes.\" (NOTE: The Guru does not leave at anytime). How may blue eyed people leave on the 100th night?",
+		"answer": "100"
+	},
+	"Pisa":
+	{
+		"country": "Italy",
+		"latitude": 43.7231,
+		"longitude": 10.3964,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question":
+		"You are 18 years old living in Italy in 1400 A.D. It’s been 28 years since the Leaning tower of Pisa was built. You are in awe of the tower. You ask your father to tell about it’s history. Your father, testing your aptitude and knowledge says, \"Our family has seen an unusual tradition before you were born. The father dies the day when his child is born. My great grandfather was born the day the foundations of the tower were laid. He lived for a few years. His son (my grandfather) lived one more than twice the years his father (my great grandfather) lived. My father lived one less than half the years my great grandfather lived. And I was one more than half the years old my great grandfather lived when the construction was completed. Today I am thrice as old as you. How many years were spent to construct the tower?\"",
+		"answer": "200"
+	},
+	"Irkutsk":
+	{
+		"country": "Russia",
+		"latitude": 52.3122,
+		"longitude": 104.2958,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question":
+		"A fisherman after fishing in the lake Baikal in Irkutsk, put the catch in 3 boxes. One box contains only trout, one box contains only sole and one box contains both. He was supposed to label the boxes 'trout', 'sole', 'both'. But since he was looking at hot Russian girls, he made a mistake in matching the labels with the correct boxes, such that now no box has the correct label. You are allowed to draw only 1 fish from only one of the boxes, to find out which box contains what. What is the label on the box you would choose?",
+		"answer": "both"
+	},
+	"Hamburg":
+	{
+		"country": "Germany",
+		"latitude": 53.5653,
+		"longitude": 10.0014,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question":
+		"<p>The Hamburg Rathaus is the city hall of Hamburg, Germany. It is the seat of the government of Hamburg and as such, the seat of one of Germany's 16 state parliaments. Construction started in 1886 and the new city hall was inaugurated in 1897.</p>\n<p>After sometime a new room was found in the basement which remained intact but was locked. The key to the lock was the difference between two numbers which were the answer to a mathematical puzzle: \"The two numbers had the highest possible product and they were to be formed using all the numbers from 1 to 9 only once and they did not have a single common digit.\"</p>\n<p>What is the key?</p>",
+		"answer": "77889"
 	}
 }
