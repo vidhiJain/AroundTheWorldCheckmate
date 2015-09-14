@@ -80,7 +80,7 @@
 		"longitude": -71.9722,
 		"rent": 0.0,
 		"stipend": 800.0,
-		"question":"Cusco is an incredible hub for outdoor discoveries. Whether one is a serious adventurer, history buff or general sightseer, the treasures will capture your senses. There are many ruins and places to visit within short distances of Cusco. The kilke people who occupied the region from 900 to 1200, had constructed Saksaywaman, the walled complex outside Cusco at about 1100. Recently the archaeologists discovered the ruins of an ancient temple, roadway and aqueduct system at Saksaywaman. But along with it the local people started hearing strange noises in the night and there were strange disappearances. The temple covers some 11 rooms thought to have held idols and mummies, establishing its religious purpose. To save the world from the wrath of the mummies whose sleep has been disturbed due to the excavation the mayor Luis Florez decides to go the temple and find the mummies. On entering the temple he goes 90 meters in the east before turning to his right. Then he hears a noise but keeps walking and goes 20 meters ahead before turning to his right again. He walks to a skull 30 meters from this point. Scared as hell he starts running north to around 100 meters before he reaches a ladder. He climbs the ladder and there in front of him there is a locked gate. All of a sudden he hears a voice saying \"hello Luis.. the gate will open only if you will answer this question.. how far are you from the temple gate?\". Can you help Luis solve this question by telling him how far he is from the starting point (in meters)?",
+		"question":"<p>Cusco is an incredible hub for outdoor discoveries. Whether one is a serious adventurer, history buff or general sightseer, the treasures will capture your senses. There are many ruins and places to visit within short distances of Cusco. The kilke people who occupied the region from 900 to 1200, had constructed Saksaywaman, the walled complex outside Cusco at about 1100.</p>\n<p>Recently the archaeologists discovered the ruins of an ancient temple, roadway and aqueduct system at Saksaywaman. But along with it the local people started hearing strange noises in the night and there were strange disappearances. The temple covers some 11 rooms thought to have held idols and mummies, establishing its religious purpose. To save the world from the wrath of the mummies whose sleep has been disturbed due to the excavation the mayor Luis Florez decides to go the temple and find the mummies.</p>\n<p>On entering the temple he goes 90 meters in the east before turning to his right. Then he hears a noise but keeps walking and goes 20 meters ahead before turning to his right again. He walks to a skull 30 meters from this point. Scared as hell he starts running north to around 100 meters before he reaches a ladder. He climbs the ladder and there in front of him there is a locked gate. All of a sudden he hears a voice saying \"Hello Luis.. the gate will open only if you will answer this question.. how far are you from the temple gate?\". Can you help Luis by telling him how far he is from the starting point (in meters)?</p>",
 		"answer": "100"
 	},
 	"Istanbul":
@@ -180,5 +180,16 @@
 		"question":
 		"<p>In 1978, 5 BITSians (of different years) decided to go to Buenos Aires, the capital city of Argentina to watch FIFA world cup. Along the way they found 10 footballs lying around on the road. They decided to split the balls under the scheme: The senior most BITSian proposes how to share the balls, and all BITSians (including the senior most) vote for or against it. If 50% or more of the BITSians vote for it, then the balls will be shared that way. Otherwise, the BITSian proposing the scheme will be killed, and the process is repeated with the BITSians that remain.</p>\n<p>As these 5 BITSians are a rapacious bunch, if a BITSian would get the same number of balls if he voted for or against a proposal, he will vote against so that the BITSian who proposed the plan will be killed. Assuming all the the BITSians are intelligent, rational, greedy, and do not wish to die (and are also good at math), how many balls does the senior most BITSian get?</p>",
 		"answer": "8"
+	},
+	"Maasai Mara":
+	{
+		"country": "Kenya",
+		"latitude": -1.4900,
+		"longitude": 35.1439,
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question":
+		"<p>Maasai Mara is famous for wildlife reserve. It has a wide variety of grassland animals. Gazelles are known for their ability to make long and high jumps. One such gazelle, named Avi, really likes to jump. The local people have made an 8x8 grid for him to play.</p>\n<p>Avi plays a game consisting of multiple moves. In each move, he jumps 3 units towards the north, south, west or east and then one unit in the perpendicular direction (similar to a horse on a chessboard, except that a horse makes a 2 unit jump instead of 3). He starts from a corner of the grid. What is the minimum number of moves in which he can reach the opposite corner?</p>",
+		"answer": "5"
 	}
 }
