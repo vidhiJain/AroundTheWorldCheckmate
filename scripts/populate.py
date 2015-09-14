@@ -26,8 +26,8 @@ def get_dist(phi1,phi2,dlmd):
 def set_data_from_file(file_path):
 	ques_dict = json.load(open(file_path))
 	print("Loading locations...")
-	Question.objects.all().delete()
 	User.objects.exclude(player__isnull=True).delete()
+	Question.objects.all().delete()
 	for loc_name, ques in ques_dict.items():
 		db_ques = Question(loc_name=loc_name)
 		fields = ('answer','rent','stipend')
