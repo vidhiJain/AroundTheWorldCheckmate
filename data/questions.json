@@ -179,11 +179,10 @@
 		"longitude": 35.1439,
 		"rent": 400.0,
 		"stipend": 20000.0,
-		"question":
-		"<p>Maasai Mara is famous for wildlife reserve. It has a wide variety of grassland animals. Gazelles are known for their ability to make long and high jumps. One such gazelle, named Avi, really likes to jump. The local people have made an 8x8 grid for him to play.</p>\n<p>Avi plays a game consisting of multiple moves. In each move, he jumps 3 units towards the north, south, west or east and then one unit in the perpendicular direction (similar to a horse on a chessboard, except that a horse makes a 2 unit jump instead of 3). He starts from a corner of the grid. What is the minimum number of moves in which he can reach the opposite corner?</p>",
+		"question":"<p>Maasai Mara is famous for wildlife reserve. It has a wide variety of grassland animals. Gazelles are known for their ability to make long and high jumps. One such gazelle, named Avi, really likes to jump. The local people have made an 8x8 grid for him to play.</p>\n<p>Avi plays a game consisting of multiple moves. In each move, he jumps 3 units towards the north, south, west or east and then one unit in the perpendicular direction (similar to a horse on a chessboard, except that a horse makes a 2 unit jump instead of 3). He starts from a corner of the grid. What is the minimum number of moves in which he can reach the opposite corner?</p>",
 		"answer": "5"
 	},
-"Siem Reap":
+	"Siem Reap":
 	{
 		"country": "Cambodia",
 		"latitude": 13.425600,	
@@ -193,8 +192,7 @@
 		"question":"<p>There was a group of elite monks The Order of the Blue Lotus in Angkor Wat. These monks have all taken a vow of silence. They cannot communicate with each other or with the world, and all they do is pray in a common room during the day and sleep at night. As well, they have no mirrors in the compound. One day, the head monk calls them all together and says "Tonight while you sleep, I will place a black X on some of your foreheads. When you awaken, continue your normal activities. But once you determine that you have an X, you must wait until night, and then kill yourself as you are considered unfit to serve Order of Blue Lotus". So from then on, they pray together by day, and each night some may commit suicide.<br/>The question: if there are N monks with Xes, how many days does it take for the N monks to commit suicide?</p>",
 		"answer": "N"
 	},
-
-"Hong Kong":
+	"Hong Kong":
 	{
 		"country": "China",
 		"latitude": 22.396428,
@@ -202,38 +200,57 @@
 		"rent": 300.0,
 		"stipend": 18000.0,
 		"question":
-		"<p>THere was a murder in the university of Hong Kong. The victim was last seen with Ramon, Jason And Bobby, the night before he was killed. As no one went to his room afterwards, the three friends were the suspects. The only clue found was a distinctive line made of across 7,8,9,10,11 in a calender.<br/>Who's the killer?</p>",
+		"<p>There was a murder in the university of Hong Kong. The victim was last seen with Ramon, Jason And Bobby, the night before he was killed. As no one went to his room afterwards, the three friends were the suspects. The only clue found was a distinctive line made of across 7,8,9,10,11 in a calender.<br/>Who's the killer?</p>",
 		"answer": "JASON"
 	},
-"Beijing":
+	"Beijing":
 	{
 		"country": "China",
 		"latitude": 39.9081726,
 		"longitude": 116.397947,
-		"rent": 300.0,
-		"stipend": 18000.0,
+		"rent": 400.0,
+		"stipend": 20000.0,
 		"question":"<p>The Yongle emperor, Zhu Di has kept the Scroll of Wisdom containing the Secrets t to Immortality in the innermost chamber of the Forbidden city. Each door to the chamber can be unlocked by one key. It has the Grand priest and four Elder priests in charge of guarding the doors to the chamber, but the Emperor has given out the keys in such a way that the Grand Priest can only unlock the doors if (any) one of the Elder Priest is with him. The Elder Priests can only unlock the chamber if at least three of them work together.<br/>What was the smallest possible number of doors that guard the chamber?</p>",
 		"answer": "7"
 	},
 	"Caracas":
 	{
 		"country": "Venezuela",
-		"latitude": 39.9081726,
-		"longitude": 116.397947,
-		"rent": 300.0,
-		"stipend": 18000.0,
-		"question":"<p></p>",
-		"answer": "7"
+		"latitude": 10.496,
+		"longitude": -66.898,
+		"rent": 500.0,
+		"stipend": 25000.0,
+		"question":"<p>Santiago de León de Caracas, is the capital, the center of the Greater Caracas Area, and the largest city of Venezuela.Caracas is also Venezuela's cultural capital, with many restaurants, theaters, museums, and shopping centers. Some of the tallest skyscrapers in Latin America are located in Caracas. However, it also has one of the highest murder rates in the world.one morning there was a murser in the house of a married couple, their son and daughter. One of these four people murdered one of the others. One of the family members witnessed the crime. one of the others helped. the murderer.\nThese sre the things we know for sure:\n<ol>\n<li>The witness and the one who helped the murderer were nt of the same sex.</li>\n<li>The oldest person and the witness were not of the same sex.</li>\n<li>The youngest person and the victim were not of the same sex.</li>\n<li>The one who helped the murderer was older than the victim.</li>\n<li>The father was the oldest member of the family.</li>\n<li>the murderer was not the youngest member of the family.</li>\n</ol>\nwho is the murderer?</p>",
+		"answer": "mother"
 	},
-"Pretoria":
+	"Pretoria":
 	{
 		"country": "South Africa",
-		"latitude": 39.9081726,
-		"longitude": 116.397947,
+		"latitude": -25.738,
+		"longitude": 28.189,
 		"rent": 300.0,
 		"stipend": 18000.0,
 		"question":"<p>Mahlamba Ndlopfu is the official residence for the President of South Africa in Bryntirion, Pretoria. The house, formerly called Libertas, was designed by Architect Gerard Moerdijk in a traditional Cape Dutch style and completed in 1940 as the official residence for the Prime Minister of South Africa. After the post of Prime Minister was abolished in 1984, it became the presidential residence. President of South Africa, Jacob Zuma lives there. He has 3 wives Named, Gloria Bongekile Ngema,  Nompumelelo Ntuli, Thobeka Stacie Madiba.<br/>King Had x children from Thobeka Stacie Madiba, x+1 children from Gloria Bongekile Ngema. Entire Family Had 23 children. <br/>Children of same parent  never fought with each other, Then find the Maximum number of fights that took  place in Palace of Mahlamba Ndlopfu. </p>",
 		"answer": "176"
 	},
-
+	"Las Vegas":
+	{
+		"country": "USA",
+		"latitude": 36.233,
+		"longitude":-115.247,
+		"rent": 400.0,
+		"stipend": 20000.0,
+		"question":"<p>5 couples meet at a party in ceaser's palace,Las Vegas. Various handshakes took place. No one shook hands with oneself, nor with one's spouse, and no one they are already aquainted with. After all the handshakes were over, one of them (Jake) asked each person, including his wife, how many hands he (or she) had shaken. To his surprise each gave a different answer. How many hands did his wife shake? </p>",
+		"answer": "4"
+	},
+	"Sydney":
+	{
+		"country": "Australia",
+		"latitude": -33.867,
+		"longitude": 151.207,
+		"rent": 300.0,
+		"stipend": 18000.0,
+		"question":"<p>Masterchef Australia is the most famous cooking competiton in the world. In a preliminary test, the amateur chefs were asked to cut a pie with just 7 cuts. what are the maximun no of pieces the pie can be cut into?</p>",
+		"answer": "27"
+	}
 }
