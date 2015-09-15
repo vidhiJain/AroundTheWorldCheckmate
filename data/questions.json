@@ -110,7 +110,7 @@
 		"latitude": 40.7903,
 		"longitude": -73.9597,
 		"rent":400.0,
-		"stipend": 20000.0
+		"stipend": 20000.0,
 		"question": "Once a cult group went to visit the Statue of Liberty on Liberty Island, Manhattan. On this island there were 100 blue eyed people, 100 brown eyed people, and the Guru (she happens to have green eyes). So any given blue-eyed person can see 100 people with brown eyes and 99 people with blue eyes (and one with green), but that does not tell him his own eye color; as far as he knows the totals could be 101 brown and 99 blue. Or 100 brown, 99 blue, and he could have red eyes. Nobody is aware of the colour of their own eyes beforehand.<br />\nTo test her followers, the Guru decided to keep them confined on Liberty Island. Every night at midnight, a ferry stopped at the island. Any islander who figured out the color of their own eyes then left the island, and the rest stayed. Everyone can see everyone else at all times and keeps a count of the number of people they see with each eye color (excluding themselves), but they cannot otherwise communicate. Everyone on the island knows all the rules in this paragraph. They are all perfect logicians if a conclusion can be logically deduced, they will do it instantly. They have adequate resources to stay on the island for years together. Before beginning, the Guru speaks one sentence: \"I can see someone who has blue eyes.\" (NOTE: The Guru does not leave at anytime). How may blue eyed people leave on the 100th night?",
 		"answer": "100"
 	},
@@ -121,8 +121,7 @@
 		"longitude": 10.3964,
 		"rent": 300.0,
 		"stipend": 18000.0,
-		"question":
-		"You are 18 years old living in Italy in 1400 A.D. It’s been 28 years since the Leaning tower of Pisa was built. You are in awe of the tower. You ask your father to tell you about it’s history. Your father, testing your aptitude and knowledge says, \"Our family has seen an unusual tradition before you were born. The father dies the day when his child is born. My great grandfather was born the day the foundations of the tower were laid. He lived for a few years. His son (my grandfather) lived one more than twice the years his father (my great grandfather) lived. My father lived one less than half the years my great grandfather lived. And I was one more than half the years old my great grandfather lived when the construction was completed. Today I am thrice as old as you. How many years were spent to construct the tower?\"",
+		"question":"You are 18 years old living in Italy in 1400 A.D. It’s been 28 years since the Leaning tower of Pisa was built. You are in awe of the tower. You ask your father to tell you about it’s history. Your father, testing your aptitude and knowledge says, \"Our family has seen an unusual tradition before you were born. The father dies the day when his child is born. My great grandfather was born the day the foundations of the tower were laid. He lived for a few years. His son (my grandfather) lived one more than twice the years his father (my great grandfather) lived. My father lived one less than half the years my great grandfather lived. And I was one more than half the years old my great grandfather lived when the construction was completed. Today I am thrice as old as you. How many years were spent to construct the tower?\"",
 		"answer": "200"
 	},
 	"Irkutsk":
@@ -131,7 +130,7 @@
 		"latitude": 52.3122,
 		"longitude": 104.2958,
 		"rent": 300.0,
-		"stipend": 18000.0
+		"stipend": 18000.0,
 		"question":"A fisherman after fishing in the lake Baikal in Irkutsk, put the catch in 3 boxes. One box contains only trout, one box contains only sole and one box contains both. He was supposed to label the boxes 'trout', 'sole', 'both'. But since he was looking at hot Russian girls, he made a mistake in matching the labels with the correct boxes, such that now no box has the correct label. You are allowed to draw only 1 fish from only one of the boxes, to find out which box contains what. What is the label on the box you would choose?",
 		"answer": "both"
 	},
@@ -149,8 +148,8 @@
 		"country": "Indonesia",
 		"latitude": -8.6500,
 		"longitude": 115.2167,
-		"rent": 0.0,
-		"stipend": 800.0,
+		"rent": 270.0,
+		"stipend": 15000.0,
 		"question":"<p>Five sailors survive a shipwreck and swim to a Beach of Bali island where there is nothing but coconut trees and a Kera monkey. The sailors gather all the coconuts and put them in a big pile under the tree. Exhausted, they agree to go and wait until the next morning to divide the coconuts.</p>\n<p>At one o'clock in the morning, the first sailor wakes up. He realizes that he cannot trust the others, and decides to take his share now. He divides the coconuts into five equal piles, but there is one coconut left over. He gives that coconut to the monkey, hides his coconuts (one of the five piles), and puts the rest of the coconuts (the other four piles) back under the tree. At two o'clock, the second sailor wakes up. Not realizing that the first sailor has already taken his share, he too divides the coconuts up into five piles, leaving one coconut over which he gives to the monkey. He then hides his share (one of the five piles), and puts the remainder (the other four piles) back under the tree.</p>\n<p>At three, four, and five o'clock in the morning, the third, fourth, and fifth sailors each wake up and carry out the same actions.In the morning, all the sailors wake up, and try to look innocent. No one makes a remark about the diminished pile of coconuts, and no one decides to be honest and admit that they have already taken their share. Instead, they divide the pile up into five piles, for the sixth time, and find that there is yet again one coconut left over, which they give to the monkey.</p>\n<p>Find out the number of coconut in the initial pile?</p>",
 		"answer": "15621"
 	},
