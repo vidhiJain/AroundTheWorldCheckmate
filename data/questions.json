@@ -69,7 +69,7 @@
 		"longitude": 23.7167,
 		"rent": 0.0,
 		"stipend": 800.0,
-		"question": "The ancient Athenians were renowned for being master artisans and craftsmen who fashioned various works of art structures. They want to sculpt ten poles. Based on the given statements, select the most appropriate option to solve the given question. What will be the total weight of 10 poles each of same weight? Statements (I) One fourth of the weight of a pole is 15kg. (II) The total weight of these poles is 160 kg more than the total weight of two poles (A) Statement I alone is not sufficient (B) Statement II alone is not sufficient (C) Either I or II alone is sufficient (D) Both statements I and II together are not sufficient.",
+		"question": "The ancient Athenians were renowned for being master artisans and craftsmen who fashioned various works of art structures. They want to sculpt ten poles.Based on the given statements, select the most appropriate option to solve the given question. What will be the total weight of 10 poles each of same weight? Statements (I) One fourth of the weight of a pole is 15kg. (II) The total weight of these poles is 160 kg more than the total weight of two poles (A) Statement I alone is not sufficient (B) Statement II alone is not sufficient (C) Either I or II alone is sufficient (D) Both statements I and II together are not sufficient.",
 		"answer": "C"
 	},
 	"Cusco":
@@ -79,7 +79,8 @@
 		"longitude": -71.9722,
 		"rent": 300.0,
 		"stipend": 18000.0,
-		"question":"<p>Cusco is an incredible hub for outdoor discoveries. Whether one is a serious adventurer, history buff or general sightseer, the treasures will capture your senses. There are many ruins and places to visit within short distances of Cusco. The kilke people who occupied the region from 900 to 1200 A.D. , had constructed Saksaywaman, the walled complex outside Cusco in 12th century.</p>\n<p>Recently the archaeologists discovered the ruins of an ancient temple, roadway and aquaduct system at Saksaywaman. But along with it the local people started hearing strange noises in the night and there were strange disappearances. The temple covers some 11 rooms thought to have held idols and mummies, establishing its religious purpose. To save the world from the wrath of the mummies whose sleep has been disturbed due to the excavation, the mayor Luis Florez decides to go the temple and find the mummies. </p>\n<p>On entering the temple he goes 90 meters in the east before turning to his right. Then he hears a noise but keeps walking and goes 20 meters ahead before turning to his right again. He walks to a skull 30 meters from this point. Scared as hell he starts running north to around 100 meters before he reaches a 75 metre high ladder. He climbs the ladder and there in front of him there is a locked gate. All of a sudden he hears a voice saying \"Hello Luis.. the gate will open only if you will answer this question.. how far are you from the temple gate?\".Can you help Luis by telling him how far he is from the starting point (in meters)?</p>",		"answer": "125"
+		"question":"<p>Cusco is an incredible hub for outdoor discoveries. Whether one is a serious adventurer, history buff or general sightseer, the treasures will capture your senses. There are many ruins and places to visit within short distances of Cusco. The kilke people who occupied the region from 900 to 1200 A.D. , had constructed Saksaywaman, the walled complex outside Cusco in 12th century.</p>\n<p>Recently the archaeologists discovered the ruins of an ancient temple, roadway and aquaduct system at Saksaywaman. But along with it the local people started hearing strange noises in the night and there were strange disappearances. The temple covers some 11 rooms thought to have held idols and mummies, establishing its religious purpose. To save the world from the wrath of the mummies whose sleep has been disturbed due to the excavation, the mayor Luis Florez decides to go the temple and find the mummies.</p>\n<p>On entering the temple he goes 90 meters in the east before turning to his right. Then he hears a noise but keeps walking and goes 20 meters ahead before turning to his right again. He walks to a skull 30 meters from this point. Scared as hell he starts running north to around 100 meters before he reaches a 75 metre high ladder. He climbs the ladder and there in front of him there is a locked gate. All of a sudden he hears a voice saying \"Hello Luis.. the gate will open only if you will answer this question.. how far are you from the temple gate?\". Can you help Luis by telling him how far he is from the starting point (in meters)?</p>",
+		"answer": "125"
 	},
 	"Istanbul":
 	{
@@ -88,15 +89,16 @@
 		"longitude": 28.9550,
 		"rent": 400.0,
 		"stipend": 20000.0,
-		"question": "According to the turkish folklore, a smart man named Mullah Nassirudin once lived in Istanbul. During a grand celebration the king challenged the people from all over turkey to solve a mathematical puzzle. The puzzle was simply a series of numbers and the next number was to be guessed. Among all the people only Mullah Nassirudin was able to solve this puzzle. Can you guess the next number in the series?<br>4,6,12,18,30,42,60,_",		"answer": "72"
+		"question": "Istanbul,the most populous city in Turkey,is an exceptional city when it comes to area code.It has 2 area codes-one for Europian and other for Asian side. Both the code are 3 digit no.  greater than 200 having the first 2 digit same.The difference between the Asian and european code is 4.Coincidentally the Asian code is a cube of a no.and the last digit of european code is same as it’s first digit.Find the Europian code(or Asian code).",
+		"answer": "72"
 	},
 	"Zermatt":
 	{
 		"country": "Switzerland",
 		"latitude": 46.0167,
 		"longitude": 7.7500,
-		"rent": 450.0,
-		"stipend": 13000.0,
+		"rent": 0.0,
+		"stipend": 800.0,
 		"question":
 		"Once Bill was visiting the MatterHorn Museum, Zermatt. In the amateur’s exhibition, he saw a painting of three children which really appealed to him. He went to meet the painter and was surprised to see that it was his old friend Steve.<br />\nBill: Hey! How are you man?<br />\nSteve: Not bad, got married and have three kids now. They are the kids in my painting.<br />\nBill: That’s awesome. How old are they?<br />\nSteve: The product of their ages is 72 and the sum of their ages is the same as your birth date.<br />\nBill: Hmm... I still don’t get it.<br />\nSteve: My eldest kid is trying to learn the guitar.<br />\nBill: Oh I get it now.<br />\nWhat’s the sum of ages of the kids? (The painting in question does not reveal anything about the ages of the kids)",
 		"answer": "14",
@@ -108,10 +110,9 @@
 		"latitude": 40.7903,
 		"longitude": -73.9597,
 		"rent":400.0,
-		"stipend": 20000.0,
-		"question": "Once a cult group went to visit the Statue of Liberty on Liberty Island, Manhattan. On this island there were 100 blue eyed people, 100 brown eyed people,and the Guru (she happens to have green eyes). So any given blue-eyed person can see 100 people with brown eyes and 99 people with blue eyes (and one with green),but that does not tell him his own eye color; as far as he knows the totals could be 101 brown and 99 blue. Or 100 brown, 99 blue, and he could have red eyes. Nobody is aware of the colour of their own eyes beforehand.<br />\nTo test her followers, the Guru decided to keep them confined on Liberty Island. Every night at midnight, a ferry stopped at the island. Any islander who figured out the color of their own eyes then left the island, and the rest stayed. Everyone can see everyone else at all times and keeps a count of the number of people they see with each eye color (excluding themselves), but they cannot otherwise communicate. Everyone on the island knows all the rules in this paragraph. They are all perfect logicians if a conclusion can be logically deduced, they will do it instantly. They have adequate resources to stay on the island for years together. Before beginning, the Guru speaks one sentence: \"I can see someone who has blue eyes.\" (NOTE: The Guru does not leave at anytime). How may blue eyed people leave on the 100th night?",		
-		"answer": "100"	
-		
+		"stipend": 20000.0
+		"question": "Once a cult group went to visit the Statue of Liberty on Liberty Island, Manhattan. On this island there were 100 blue eyed people, 100 brown eyed people, and the Guru (she happens to have green eyes). So any given blue-eyed person can see 100 people with brown eyes and 99 people with blue eyes (and one with green), but that does not tell him his own eye color; as far as he knows the totals could be 101 brown and 99 blue. Or 100 brown, 99 blue, and he could have red eyes. Nobody is aware of the colour of their own eyes beforehand.<br />\nTo test her followers, the Guru decided to keep them confined on Liberty Island. Every night at midnight, a ferry stopped at the island. Any islander who figured out the color of their own eyes then left the island, and the rest stayed. Everyone can see everyone else at all times and keeps a count of the number of people they see with each eye color (excluding themselves), but they cannot otherwise communicate. Everyone on the island knows all the rules in this paragraph. They are all perfect logicians if a conclusion can be logically deduced, they will do it instantly. They have adequate resources to stay on the island for years together. Before beginning, the Guru speaks one sentence: \"I can see someone who has blue eyes.\" (NOTE: The Guru does not leave at anytime). How may blue eyed people leave on the 100th night?",
+		"answer": "100"
 	},
 	"Pisa":
 	{
@@ -121,7 +122,7 @@
 		"rent": 300.0,
 		"stipend": 18000.0,
 		"question":
-		"You are 18 years old living in Italy in 1400 A.D. It’s been 28 years since the Leaning tower of Pisa was built. You are in awe of the tower. You ask your father to tell you about it’s history. Your father, testing your aptitude and knowledge says, \"Our family has seen an unusual tradition before you were born. The father dies the day when his child is born. My great grandfather was born the day the foundations of the tower were laid. He lived for a few years. His son (my grandfather) lived one more than twice the years his father (my great grandfather) lived. My father lived one less than half the years my great grandfather lived. And I was one more than half the years old my great grandfather lived when the construction was completed. Today I am thrice as old as you. How many years were spent to construct the tower?\"",		
+		"You are 18 years old living in Italy in 1400 A.D. It’s been 28 years since the Leaning tower of Pisa was built. You are in awe of the tower. You ask your father to tell you about it’s history. Your father, testing your aptitude and knowledge says, \"Our family has seen an unusual tradition before you were born. The father dies the day when his child is born. My great grandfather was born the day the foundations of the tower were laid. He lived for a few years. His son (my grandfather) lived one more than twice the years his father (my great grandfather) lived. My father lived one less than half the years my great grandfather lived. And I was one more than half the years old my great grandfather lived when the construction was completed. Today I am thrice as old as you. How many years were spent to construct the tower?\"",
 		"answer": "200"
 	},
 	"Irkutsk":
@@ -129,10 +130,10 @@
 		"country": "Russia",
 		"latitude": 52.3122,
 		"longitude": 104.2958,
-		"rent": 500.0,
-		"stipend": 12000.0,
+		"rent": 300.0,
+		"stipend": 18000.0
 		"question":
-		"A fisherman after fishing in the lake Baikal in Irkutsk, put the catch in 3 boxes. One box contains only trout, one box contains only sole and one box contains both. He was supposed to label the boxes 'trout', 'sole', 'both'. But since he was looking at hot Russian girls, he made a mistake in matching the labels with the correct boxes, such that now no box has the correct label. You are allowed to draw only 1 fish from only one of the boxes, to find out which box contains what. What is the label on the box you would choose?",		
+		"A fisherman after fishing in the lake Baikal in Irkutsk, put the catch in 3 boxes. One box contains only trout, one box contains only sole and one box contains both. He was supposed to label the boxes 'trout', 'sole', 'both'. But since he was looking at hot Russian girls, he made a mistake in matching the labels with the correct boxes, such that now no box has the correct label. You are allowed to draw only 1 fish from only one of the boxes, to find out which box contains what. What is the label on the box you would choose?",
 		"answer": "both"
 	},
 	"Hamburg":
@@ -143,7 +144,10 @@
 		"rent": 200.0,
 		"stipend": 15000.0,
 		"question":
-		"<p>The Hamburg Rathaus is the city hall of Hamburg, Germany. It is the seat of the government of Hamburg and as such, the seat of one of Germany's 16 state parliaments. Construction started in 1886 and the new city hall was inaugurated in 1897.</p>\n<p>After sometime a new room was found in the basement which remained intact but was locked. The key to the lock was the difference between two numbers which were the answer to a mathematical puzzle: \"The two numbers had the highest possible product and they were to be formed using all the numbers from 1 to 9 only once and they did not have a single common digit.\"</p>\n<p>What is the key?</p>",
+		"<p>The Hamburg Rathaus is the city hall of Hamburg, Germany. It is the seat of the government of Hamburg and as such, the seat of one of Germany's 16 state parliaments. 
+Construction started in 1886 and the new city hall was inaugurated in 1897.</p>\n<p>After sometime a new room was found in the basement which remained intact but was locked. 
+The key to the lock was the difference between two numbers which were the answer to a mathematical puzzle: \"The two numbers had the highest possible product and they were to 
+be formed using all the numbers from 1 to 9 only once and they did not have a single common digit.\"</p>\n<p>What is the key?</p>",
 		"answer": "77889"
 	},
 	"Bali":
@@ -151,9 +155,14 @@
 		"country": "Indonesia",
 		"latitude": -8.6500,
 		"longitude": 115.2167,
-		"rent": 350.0,
-		"stipend": 18000.0,
-		"question":"<p>Five sailors survive a shipwreck and swim to a Beach of Bali island where there is nothing but coconut trees and a Kera monkey. The sailors gather all the coconuts and put them in a big pile under the tree. Exhausted, they agree to go and wait until the next morning to divide the coconuts.</p>\n<p>At one o'clock in the morning, the first sailor wakes up. He realizes that he cannot trust the others, and decides to take his share now. He divides the coconuts into five equal piles, but there is one coconut left over. He gives that coconut to the monkey, hides his coconuts (one of the five piles), and puts the rest of the coconuts (the other four piles) back under the tree. At two o'clock, the second sailor wakes up. Not realizing that the first sailor has already taken his share, he too divides the coconuts up into five piles, leaving one coconut over which he gives to the monkey. He then hides his share (one of the five piles), and puts the remainder (the other four piles) back under the tree.</p>\n<p>At three, four, and five o'clock in the morning, the third, fourth, and fifth sailors each wake up and carry out the same actions.In the morning, all the sailors wake up, and try to look innocent. No one makes a remark about the diminished pile of coconuts, and no one decides to be honest and admit that they have already taken their share. Instead, they divide the pile up into five piles, for the sixth time, and find that there is yet again one coconut left over, which they give to the monkey.</p>\n<p>Find out the number of coconut in the initial pile?</p>",
+		"rent": 0.0,
+		"stipend": 800.0,
+		"question":
+		"<p>Five sailors survive a shipwreck and swim to a Beach of Bali island where there is nothing but coconut trees and a Kera monkey. The sailors gather all the coconuts 
+and put them in a big pile under the tree. Exhausted, they agree to go and wait until the next morning to divide the coconuts.</p>\n<p>At one o'clock in the morning,
+ the first sailor wakes up. He realizes that he cannot trust the others, and decides to take his share now. He divides the coconuts into five equal piles,
+ but there is one coconut left over. He gives that coconut to the monkey, hides his coconuts (one of the five piles), and puts the rest of the coconuts (the other four piles) back under the tree. At two o'clock, the second sailor wakes up. Not realizing that the first sailor has already taken his share, he too divides the coconuts up into five piles, leaving one coconut over which he gives to the monkey. He then hides his share (one of the five piles), and puts the remainder (the other four piles) back under the tree.</p>\n<p>At three, four, and five o'clock in the morning, the third, fourth, and fifth sailors each wake up and carry out the same actions.In the morning, all the sailors wake up, and try to look innocent. No one makes a remark about the diminished pile of coconuts, and no one decides to be honest and admit that they have already taken their share. 
+Instead, they divide the pile up into five piles, for the sixth time, and find that there is yet again one coconut left over, which they give to the monkey.</p>\n<p>Find out the number of coconut in the initial pile?</p>",
 		"answer": "15621"
 	},
 	"Prague":
@@ -163,7 +172,11 @@
 		"longitude": 14.4167,
 		"rent": 300.0,
 		"stipend": 18000.0,
-		"question":"<p>Prague Castle is a castle complex in Prague, Czech Republic, dating from the 9th century and the official residence of the President of the Czech Republic. The castle was a seat of power for kings of Bohemia, Holy Roman emperors, and presidents of Czechoslovakia.</p>\n<p>A stark raving mad king tells his 100 wisest men he is about to line them up and that he will place either a red or blue hat on each of their heads. Once lined up, they must not communicate amongst themselves. Nor may they attempt to look behind them or remove their own hat. The king tells the wise men that they will be able to see all the hats in front of them. They will not be able to see the color of their own hat or the hats behind them, although they will be able to hear the answers from all those behind them.</p>\n<p>The king will then start with the wise man in the back and ask \"what color is your hat?\" The wise man will only be allowed to answer \"red\" or \"blue\", nothing more. If the answer is incorrect then the wise man will be silently killed. If the answer is correct then the wise man may live but must remain absolutely silent.</p>\n<p>The king will then move on to the next wise man and repeat the question. The king makes it clear that if anyone breaks the rules then all the wise men will die, then allows the wise men to consult before lining them up. The king listens in while the wise men consult each other to make sure they don't devise a plan to cheat. To communicate anything more than their guess of red or blue by coughing or shuffling would be breaking the rules. What is the maximum number of men they can guarantee to save?</p>",
+		"question":
+		"<p>Prague Castle is a castle complex in Prague, Czech Republic, dating from the 9th century and the official residence of the President of the Czech Republic. The castle
+ was a seat of power for kings of Bohemia, Holy Roman emperors, and presidents of Czechoslovakia.</p>\n<p>A stark raving mad king tells his 100 wisest men he is about to line them up and
+ that he will place either a red or blue hat on each of their heads. Once lined up, they must not communicate amongst themselves. Nor may they attempt to look behind them or remove their
+ own hat. The king tells the wise men that they will be able to see all the hats in front of them. They will not be able to see the color of their own hat or the hats behind them, although they will be able to hear the answers from all those behind them.</p>\n<p>The king will then start with the wise man in the back and ask \"what color is your hat?\" The wise man will only be allowed to answer \"red\" or \"blue\", nothing more. If the answer is incorrect then the wise man will be silently killed. If the answer is correct then the wise man may live but must remain absolutely silent.</p>\n<p>The king will then move on to the next wise man and repeat the question. The king makes it clear that if anyone breaks the rules then all the wise men will die, then allows the wise men to consult before lining them up. The king listens in while the wise men consult each other to make sure they don't devise a plan to cheat. To communicate anything more than their guess of red or blue by coughing or shuffling would be breaking the rules. What is the maximum number of men they can guarantee to save?</p>",
 		"answer": "99"
 	},
 	"Buenos Aires":
@@ -173,7 +186,14 @@
 		"longitude": -58.3817,
 		"rent": 500.0,
 		"stipend": 25000.0,
-		"question":"<p>In 1978, 5 BITSians (of different years) decided to go to Buenos Aires, the capital city of Argentina to watch FIFA world cup. Along the way they found 100 footballs lying around on the road. They decided to split the balls under the scheme: The senior most BITSian proposes how to share the balls, and all BITSians (not including the senior most) vote for or against it. If 50% or more of the BITSians vote for it, then the balls will be shared that way. Otherwise, the BITSian proposing the scheme will be killed, and the process is repeated with the BITSians that remain.</p>\n<p>As these 5 BITSians are a rapacious bunch, if a BITSian would get the same number of balls if he voted for or against a proposal, he will  vote against so that the BITSian who proposed the plan will be killed. Assuming all the the BITSians are intelligent, rational, greedy, and do not wish to die (and are also good at math), how many balls does the senior most BITSian get?</p>",		"answer": "97"
+		"question":
+		"<p>In 1978, 5 BITSians (of different years) decided to go to Buenos Aires, the capital city of Argentina to watch FIFA world cup. Along the way they found 100 footballs
+ lying around on the road. They decided to split the balls under the scheme: The senior most BITSian proposes how to share the balls, and all BITSians (not including the senior most) vote 
+for or against it. If 50% or more of the BITSians vote for it, then the balls will be shared that way. Otherwise, the BITSian proposing the scheme will be killed, and the process is
+ repeated with the BITSians that remain.</p>\n<p>As these 5 BITSians are a rapacious bunch, if a BITSian would get the same number of balls if he voted for or against a proposal, he will
+ vote against so that the BITSian who proposed the plan will be killed. Assuming all the the BITSians are intelligent, rational, greedy, and do not wish to die (and are also good at math),
+ how many balls does the senior most BITSian get?</p>",
+		"answer": "97"
 	},
 	"Maasai Mara":
 	{
@@ -183,10 +203,13 @@
 		"rent": 400.0,
 		"stipend": 20000.0,
 		"question":
-		"<p>Maasai Mara is famous for wildlife reserve. It has a wide variety of grassland animals. Gazelles are known for their ability to make long and high jumps. One such gazelle, named Avi, really likes to jump. The local people have made an 8x8 grid for him to play.</p>\n<p>Avi plays a game consisting of multiple moves. In each move, he jumps 3 units towards the north, south, west or east and then one unit in the perpendicular direction (similar to a horse on a chessboard, except that a horse makes a 2 unit jump instead of 3). He starts from a corner of the grid. What is the minimum number of moves in which he can reach the opposite corner?</p>",
+		"<p>Maasai Mara is famous for wildlife reserve. It has a wide variety of grassland animals. Gazelles are known for their ability to make long and high jumps. One such gazel
+le, named Avi, really likes to jump. The local people have made an 8x8 grid for him to play.</p>\n<p>Avi plays a game consisting of multiple moves. In each move, he jumps 3 units towards
+ the north, south, west or east and then one unit in the perpendicular direction (similar to a horse on a chessboard, except that a horse makes a 2 unit jump instead of 3). He starts 
+from a corner of the grid. What is the minimum number of moves in which he can reach the opposite corner?</p>",
 		"answer": "5"
 	},
-	"Siem Reap":
+"Siem Reap":
 	{
 		"country": "Cambodia",
 		"latitude": 13.425600,	
@@ -197,7 +220,8 @@
 		"<p>There was a group of elite monks The Order of the Blue Lotus in Angkor Wat. These monks have all taken a vow of silence. They cannot communicate with each other or with the world, and all they do is pray in a common room during the day and sleep at night. As well, they have no mirrors in the compound. One day, the head monk calls them all together and says "Tonight while you sleep, I will place a black X on some of your foreheads. When you awaken, continue your normal activities. But once you determine that you have an X, you must wait until night, and then kill yourself as you are considered unfit to serve Order of Blue Lotus". So from then on, they pray together by day, and each night some may commit suicide.<br/>The question: if there are N monks with Xes, how many days does it take for the N monks to commit suicide?</p>",
 		"answer": "N"
 	},
-	"Hong Kong":
+
+"Hong Kong":
 	{
 		"country": "China",
 		"latitude": 22.396428,
@@ -208,15 +232,35 @@
 		"<p>THere was a murder in the university of Hong Kong. The victim was last seen with Ramon, Jason And Bobby, the night before he was killed. As no one went to his room afterwards, the three friends were the suspects. The only clue found was a distinctive line made of across 7,8,9,10,11 in a calender.<br/>Who's the killer?</p>",
 		"answer": "JASON"
 	},
-	"Beijing":
+"Beijing":
 	{
 		"country": "China",
 		"latitude": 39.9081726,
 		"longitude": 116.397947,
 		"rent": 300.0,
 		"stipend": 18000.0,
-		"question":
-		"<p>The Yongle emperor, Zhu Di has kept the Scroll of Wisdom containing the Secrets t to Immortality in the innermost chamber of the Forbidden city. Each door to the chamber can be unlocked by one key. It has the Grand priest and four Elder priests in charge of guarding the doors to the chamber, but the Emperor has given out the keys in such a way that the Grand Priest can only unlock the doors if (any) one of the Elder Priest is with him. The Elder Priests can only unlock the chamber if at least three of them work together.<br/>What was the smallest possible number of doors that guard the chamber?</p>"
+		"question":"<p>The Yongle emperor, Zhu Di has kept the Scroll of Wisdom containing the Secrets t to Immortality in the innermost chamber of the Forbidden city. Each door to the chamber can be unlocked by one key. It has the Grand priest and four Elder priests in charge of guarding the doors to the chamber, but the Emperor has given out the keys in such a way that the Grand Priest can only unlock the doors if (any) one of the Elder Priest is with him. The Elder Priests can only unlock the chamber if at least three of them work together.<br/>What was the smallest possible number of doors that guard the chamber?</p>",
 		"answer": "7"
-	}
+	},
+	"Caracas":
+	{
+		"country": "Venezuela",
+		"latitude": 39.9081726,
+		"longitude": 116.397947,
+		"rent": 300.0,
+		"stipend": 18000.0,
+		"question":"<p></p>",
+		"answer": "7"
+	},
+"Pretoria":
+	{
+		"country": "South Africa",
+		"latitude": 39.9081726,
+		"longitude": 116.397947,
+		"rent": 300.0,
+		"stipend": 18000.0,
+		"question":"<p>Mahlamba Ndlopfu is the official residence for the President of South Africa in Bryntirion, Pretoria. The house, formerly called Libertas, was designed by Architect Gerard Moerdijk in a traditional Cape Dutch style and completed in 1940 as the official residence for the Prime Minister of South Africa. After the post of Prime Minister was abolished in 1984, it became the presidential residence. President of South Africa, Jacob Zuma lives there. He has 3 wives Named, Gloria Bongekile Ngema,  Nompumelelo Ntuli, Thobeka Stacie Madiba.<br/>King Had x children from Thobeka Stacie Madiba, x+1 children from Gloria Bongekile Ngema. Entire Family Had 23 children. <br/>Children of same parent  never fought with each other, Then find the Maximum number of fights that took  place in Palace of Mahlamba Ndlopfu. </p>",
+		"answer": "176"
+	},
+
 }
