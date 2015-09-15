@@ -95,8 +95,8 @@
 		"country": "Switzerland",
 		"latitude": 46.0167,
 		"longitude": 7.7500,
-		"rent": 0.0,
-		"stipend": 800.0,
+		"rent": 450.0,
+		"stipend": 13000.0,
 		"question":
 		"Once Bill was visiting the MatterHorn Museum, Zermatt. In the amateur’s exhibition, he saw a painting of three children which really appealed to him. He went to meet the painter and was surprised to see that it was his old friend Steve.<br />\nBill: Hey! How are you man?<br />\nSteve: Not bad, got married and have three kids now. They are the kids in my painting.<br />\nBill: That’s awesome. How old are they?<br />\nSteve: The product of their ages is 72 and the sum of their ages is the same as your birth date.<br />\nBill: Hmm... I still don’t get it.<br />\nSteve: My eldest kid is trying to learn the guitar.<br />\nBill: Oh I get it now.<br />\nWhat’s the sum of ages of the kids? (The painting in question does not reveal anything about the ages of the kids)",
 		"answer": "14",
@@ -130,7 +130,7 @@
 		"latitude": 52.3122,
 		"longitude": 104.2958,
 		"rent": 500.0,
-		"stipend": 12000.0
+		"stipend": 12000.0,
 		"question":
 		"A fisherman after fishing in the lake Baikal in Irkutsk, put the catch in 3 boxes. One box contains only trout, one box contains only sole and one box contains both. He was supposed to label the boxes 'trout', 'sole', 'both'. But since he was looking at hot Russian girls, he made a mistake in matching the labels with the correct boxes, such that now no box has the correct label. You are allowed to draw only 1 fish from only one of the boxes, to find out which box contains what. What is the label on the box you would choose?",		
 		"answer": "both"
