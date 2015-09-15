@@ -11,7 +11,7 @@ function register(form){
 				login_start();
 				break;
 			case 'username_taken':
-				my_alert("This Username is already taken!",false)
+				my_alert("This Username is already taken!")
 				break;
 			case 'reg_closed':
 				my_alert("Registration is closed currently")
@@ -50,12 +50,11 @@ function user_status(){
 	success: function(response){
 		set_score(response["score"]);
 		$('#currLoc,#loc_info').html(response["curr_loc"]);
-		place = response["curr_loc"];
 		var time = parseInt(response["stay_duration"]);
 		start_stopwatch(parseInt(time/60),parseInt(time%60));
 		if(response["question"]=="")
 		{
-			$('#ques_cont .nano-content').html(response["question"]);
+			$('#ques_cont .nano-content').html('No question for this location.');
 			$('#ans_cont').css('display','none');
 			$('.info').css('display','none');
 		}
@@ -148,7 +147,7 @@ function fly_to(destination){
 		}
 		else
 		{
-			my_alert("This location does not Exist",false);
+			my_alert("This location does not Exist");
 		}
 	}
 	});
@@ -163,24 +162,20 @@ function ans_submit(answer,currLoc){
 		set_score(response["score"]);
 		if(response["attempt_status"]==true)
 		{
-			//(change this) css of respective elements
-			locations[currLoc]["solved"]=3;//solved
-			$('#sidebar>.nano-content>div[data-place="'+currLoc+'"').css('border-color','green');
+			solved(currLoc);
 			$('#ans_cont').css('display','none');
 			$('#attempt_left').html('Solved');
 			my_alert("Your answer was correct");
 		}
 		else if(response["attempts_left"]==0)
 		{
-			locations[currLoc]["solved"]=2;//blocked
-			$('#sidebar>.nano-content>div[data-place="'+currLoc+'"').css('border-color','blue');
+			blocked(currLoc);
 			$('#ans_cont').css('display','none');
 			$('#attempt_left').html(response["attempts_left"]);
 			my_alert("Your answer was worng and your attempts are over");
 		}
 		else if(response["attempts_left"]>0){
-			locations[currLoc]["solved"]=1;//wrong attempt
-			$('#sidebar>.nano-content>div[data-place="'+currLoc+'"').css('border-color','blue');
+			wrong(currLoc);
 			$('#attempt_left').html(response["attempts_left"]);
 			my_alert("Your answer was wrong and you have "+response["attempts_left"]+" attempts left");
 		}
@@ -207,21 +202,4 @@ function loc_distr(){
 		}
 	}
 	});
-}
-function solved(loc){
-	locations[loc]["solved"]=3;//solved
-	var sidebarloc = $('#sidebar>.nano-content>div[data-place="'+loc+'"');
-	sidebarloc.removeClass('wrong');
-	sidebarloc.addClass('solved');
-}
-function blocked(loc){
-	locations[loc]["solved"]=2;//blocked
-	var sidebarloc = $('#sidebar>.nano-content>div[data-place="'+loc+'"');
-	sidebarloc.removeClass('wrong');
-	sidebarloc.addClass('blocked');
-}
-function wrong(loc){
-	locations[loc]["solved"]=1;//wrong
-	var sidebarloc = $('#sidebar>.nano-content>div[data-place="'+loc+'"');
-	sidebarloc.addClass('wrong');
 }

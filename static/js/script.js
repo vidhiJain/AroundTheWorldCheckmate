@@ -1,7 +1,7 @@
 var earth, user, user64="", server_ip,confirm_type=0,place="";
 $(function() {
-	// server_ip = "http://172.17.1.186:15130/";
-	server_ip = "http://192.168.231.108:15130/";
+	server_ip = "http://172.17.1.186:15130/";
+	// server_ip = "http://192.168.231.108:15130/";
 
 	// form input label animation
 	$('.form input').blur(function() {
@@ -173,7 +173,7 @@ $(function() {
 
 	$('#sidebar').on('click','.menuitem',function(){
         place = $(this).html();
-		my_alert("Are you sure you want to go to "+place,true,1);
+		my_alert("Are you sure you want to go to "+place+" ?<br>"+get_loc_detail(place),1,true);
     });
 
 });
@@ -189,6 +189,14 @@ function set_score(x){
 			setTimeout(function() {
 				score = step_change + score;
 				obj.text(parseInt(score));
+				if(obj.css('background-color')=="rgb(42, 179, 42)")
+				{
+					obj.css('background-color','');
+				}
+				else
+				{
+					obj.css('background-color','rgb(42, 179, 42)');
+				}
 			}, 100*i);
 		}
 	}
@@ -199,19 +207,51 @@ function set_score(x){
 			setTimeout(function() {
 				score = score - step_change;
 				obj.text(parseInt(score));
+				if(obj.css('background-color')=="rgb(179, 42, 42)")
+				{
+					obj.css('background-color','');
+				}
+				else
+				{
+					obj.css('background-color','rgb(179, 42, 42)');
+				}
 			}, 100*i);
 		}
 	}
-	obj.text(parseInt(x));
 }
 // setscore END**********
+function solved(loc){
+	locations[loc]["solved"]=3;//solved
+	var sidebarloc = $('#sidebar>.nano-content>div[data-place="'+loc+'"');
+	sidebarloc.removeClass('wrong');
+	sidebarloc.addClass('solved');
+	$('div[data-placem="'+loc+'"] .we-pm-icon').css('background-image','url("./img/markerG.png")');
+}
+function blocked(loc){
+	locations[loc]["solved"]=2;//blocked
+	var sidebarloc = $('#sidebar>.nano-content>div[data-place="'+loc+'"');
+	sidebarloc.removeClass('wrong');
+	sidebarloc.addClass('blocked');
+	$('div[data-placem="'+loc+'"] .we-pm-icon').css('background-image','url("./img/markerR.png")');
+}
+function wrong(loc){
+	locations[loc]["solved"]=1;//wrong
+	var sidebarloc = $('#sidebar>.nano-content>div[data-place="'+loc+'"');
+	sidebarloc.addClass('wrong');
+	$('div[data-placem="'+loc+'"] .we-pm-icon').css('background-image','url("./img/markerY.png")');
+}
 // My alert
-function my_alert(message,cancel_disp=true,c_type=0){
+function my_alert(message,c_type=0,cancel_disp=false){
 	console.log("Alert message: "+message)
-	if(cancel_disp)
+	if(cancel_disp){
 		$('#alert_cancel').css('display','inline-block');
+		$('#alert_ok').text('Confirm');
+	}
 	else
+	{
 		$('#alert_cancel').css('display','none');
+		$('#alert_ok').text('OK');
+	}
 	confirm_type = c_type;
 	$('#alert_message').html(""+message);
 	$('#myalert').fadeIn();
@@ -244,6 +284,7 @@ function login_start(){
 function open_lb(){
 	$('#overlay').fadeIn();
     $('#ques_lb').fadeIn();
+    $('#ques_cont').nanoScroller();
 }
 function close_lb(){
 	$('#ans_cont input').val('');
@@ -301,10 +342,6 @@ function stopwatch(){
     {
         sec=0;
         min++;
-        if(min==60)
-        {
-            min=0;
-        }
     }
     time = ((min<10)? "0"+min:min) + ":" + ((sec<10)? "0"+sec:sec);
     $('#stopwatch').html(time);
@@ -323,11 +360,12 @@ function initialize() {
 	var options = {
 		minZoom: 0,
 		maxZoom: 5,
-		minAltitude:500000,
+		minAltitude:2000000,
 		maxAltitude: 20000000,
 		tileSize: 256,
 		bounds: [[-85, -180], [85, 180]],
 		tms: true,
+		sky: true,
 	}
 	earth = new WE.map('earth_div', options);
 	earth.setView([46.8011, 8.2266], 2);
@@ -337,12 +375,41 @@ function initialize() {
 	var marker;
 	for (var i in locations) {
 		marker = WE.marker([locations[i]['latitude'],locations[i]['longitude']]).addTo(earth);
-		marker.bindPopup(
-			"<a href = '#' onclick = 'showLightBox()'><div>"+i+"<br><span style='font-size:10px;color:#999'>'Cost of Accomodation: $40/min'</span></div></a>", {maxWidth: 150, closeButton: true});
+		myAddPopup(marker["element"],i);
+		$(marker["element"]).attr('data-placem', i);
         $("#sidebar>.nano-content").append('<div class="menuitem" data-place="'+i+'">'+i+'</div>');
         locations[i]["solved"]=0;//0-->not visited,1-->wrong attempt,2-->blocked attempt after many wrong,3-->solved
 	};
-	$('.nano').nanoScroller();
+	
+	$('#earth_div>div').click(function(){
+		if($(this).find('.e_popup').css('visibility')=="visible")
+		{
+			$(this).find('.e_popup').css({'visibility':'hidden','opacity':'0'});
+		}
+		else
+		{
+			$(this).find('.e_popup').css({'visibility':'visible','opacity':'1'});
+			$(this).siblings().find('.e_popup').css({'visibility':'hidden','opacity':'0'});
+		}
+	});
+	$('.e_pu_wc_go').click(function(){
+		place = $(this).siblings('.e_pu_wc_top-bar').html();
+		my_alert("Are you sure you want to go to "+place+" ?<br>"+get_loc_detail(place),1,true);
+	});
+	$('.e_popup_close').click(function(){
+		$('.e_popup').css('opacity','0');
+	});
+
+	$('#sidebar').nanoScroller();
 	$('#top_team_name').text(user);
 	user_status();
+	loc_distr();
+}
+function myAddPopup(elem,i){
+	var popup='<div class="e_popup"> <div class="e_popup_close" >&times;</div><div class="e_pu_wrapper"> <div class="e_pu_w_content"><div class="e_pu_wc_top-bar">'+i+'</div><div class="e_pu_wc_disp">'+get_loc_detail(i)+'</div><div class="e_pu_wc_go">GO</div></div> </div> <div class="e_pu_tip_cont"> <div class="tip"></div> </div> </div>'
+	$(elem).append(popup);
+	return;
+}
+function get_loc_detail(i){
+	return 'Country: '+locations[i]["country"]+'<br>Travel Cost: '+(2*3)+'<br>Rent: '+locations[i]["rent"]+'<br>Stipend: '+locations[i]["stipend"];
 }
