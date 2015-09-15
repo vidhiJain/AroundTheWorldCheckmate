@@ -3,6 +3,7 @@ __pycache__/
 README.html
 output.txt
 *.db
+/checkmate/db.json
 
 /.env
 /TODO.txt
@@ -11,7 +12,7 @@ venv/
 venv2/
 venv3/
 /extstatic/
-/static/locations.json
+/static/locations.*
 
 # OS files
 *~

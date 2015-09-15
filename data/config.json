@@ -1,8 +1,9 @@
 {
 	"initial_score": 5000.0,
-	"initial_location": "Pilani",
+	"initial_location": null,
 	"travel_cost_per_km": 0.1,
 	"score_divider": 2.0,
 	"max_attempts_per_question": 3,
+	"lboard_size": 20,
 	"earth_radius_in_km": 6371.0
 }

@@ -6,22 +6,6 @@ curl -d "username=teamrocket" -d "password=password" -d "name1=Jessie" -d "name2
 cURL command to check a user's credentials:
 curl --user "myusername" http://localhost:15130/api/check_user/
 
-Endpoints:
-POST /api/fly_to/
-location=""
-	{
-		"question":"",
-		"attempts_left":"",
-		//"bounty":""
-	}
-
-POST /api/submit/
-answer=""
-	{
-		"attempt_status":[true,false,none]
-	}
-
-
 Infobox:
 Location name
 Cost to travel
@@ -41,4 +25,4 @@ Specific time
 Quit button
 
 Orthodromic distance:
-\Delta\sigma=\arctan\left(\frac{\sqrt{\left(\cos\phi_2\sin\Delta\lambda\right)^2+\left(\cos\phi_1\sin\phi_2-\sin\phi_1\cos\phi_2\cos\Delta\lambda\right)^2}}{\sin\phi_1\sin\phi_2+\cos\phi_1\cos\phi_2\cos\Delta\lambda}\right)
+\[\Delta\sigma=\arctan\left(\frac{\sqrt{\left(\cos\phi_2\sin\Delta\lambda\right)^2+\left(\cos\phi_1\sin\phi_2-\sin\phi_1\cos\phi_2\cos\Delta\lambda\right)^2}}{\sin\phi_1\sin\phi_2+\cos\phi_1\cos\phi_2\cos\Delta\lambda}\right)\]

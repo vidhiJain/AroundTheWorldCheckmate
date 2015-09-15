@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>API Docs for Checkmate</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<style>
+	td
+	{
+		border: 1px solid black;
+		padding: 2px 10px;
+	}
+	table
+	{
+		border: 1px solid black;
+		border-collapse: collapse;
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>
+			<h2>POST /api/register/</h2>
+			<table>
+				<tr><td>Request Format</td><td>application/x-www-form-urlencoded</td></tr>
+				<tr><td>Response Format</td><td>text/plain</td></tr>
+				<tr><td>Auth required</td><td>No</td></tr>
+			</table>
+			<h4>Form fields:</h4>
+			<ul>
+				<li><b>username*</b></li>
+				<li><b>password*</b></li>
+				<li><b>name1*</b></li>
+				<li><b>name2*</b></li>
+				<li><b>phone1*</b></li>
+				<li>phone2</li>
+				<li><b>email1*</b></li>
+				<li>email2</li>
+				<li>bitsid1</li>
+				<li>bitsid2</li>
+			</ul>
+			<h4>Response:</h4>
+			<ul>
+				<li><b>success</b> - (Status 200) Registration was successful</li>
+				<li><b>username_taken</b> - (Status 200) The username supplied in the form is already in use by some other team</li>
+				<li><b>reg_closed</b> - (Status 200) Registration has been closed (possibly temporarily)</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>GET /api/check_user/</h2>
+			<p>Checks the credentials supplied in the Authorization header</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>text/plain</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
+			</table>
+			<h4>Response:</h4>
+			<ul>
+				<li><b>success</b> - (Status 200) The credentials were correct and user is allowed to play</li>
+				<li><b>game_closed</b> - (Status 403) The credentials are correct but the game cannot be played</li>
+				<li><b>inactive</b> - (Status 403) The credentials are correct but user is not allowed to play</li>
+				<li><b>wrong_login</b> - (Status 401) The credentials are incorrect</li>
+				<li>There are some other outputs as well. They all have status code 401. They arise if authorization header is corrupt or missing.</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>GET /api/user_status/</h2>
+			<p>Shows info about the user. User need not be active and game need not be open.</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
+			</table>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>is_active - Whether user is allowed to play</li>
+				<li>score</li>
+				<!--<li>arrival_time - Time when user arrived at his current location. Time is in UTC, not IST.</li>-->
+				<li>stay_duration - Time which user has spent (in seconds) in his current location since he last arrived there</li>
+				<li>attempts_left - number of attempts left at current location. -1 for correct answer. Field does not exist for passive locations</li>
+				<li>curr_loc - Current location of user</li>
+				<li>question - question text. Empty string for passive locations.</li>
+			</ul>
+			<h4>Example response:</h4>
+			<pre>
+{
+    "is_active": true,
+    "score": 3234.27913608614,
+    "stay_duration": 2461.043512,
+    "attempts_left": -1,
+    "curr_loc": "Pilani",
+    "question": ""
+}			</pre>
+		</li>
+
+		<li>
+			<h2>POST /api/exit_game/</h2>
+			<p>Ends the game for the user and makes him inactive.</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
+			</table>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>score</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>GET /api/lboard/</h2>
+			<p>The leaderboard</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>No</td></tr>
+			</table>
+			<h4>Response format:</h4>
+			<p>Output is an array of pairs. The first element of each pair is the team name and the second element is the team's score. The pairs are arranged in decreasing order of score.</p>
+			<p>It might be possible that leaderboard has not been made public. In that case, you'll receive a 403 Forbidden status code.</p>
+			<h4>Example response:</h4>
+			<pre>
+[
+    ["teamone", 400.0],
+    ["team2", 200.0]
+]			</pre>
+		</li>
+
+		<li>
+			<h2>GET /api/site_status/</h2>
+			<p>Shows whether registration is open and can game be played</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>No</td></tr>
+			</table>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>reg - whether registrations are open</li>
+				<li>game - whether game can be played</li>
+			</ul>
+			<h4>Example response:</h4>
+			<pre>
+{
+    "reg": true,
+    "game": true,
+    "lboard": false
+}
+			</pre>
+		</li>
+
+		<li>
+			<h2>POST /api/fly_to/</h2>
+			<p>Transports the user to the specified location. Deducts transportation cost and accomodation cost as well.</p>
+			<table>
+				<tr><td>Request Format</td><td>text/plain</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
+			</table>
+			<h4>Request:</h4>
+			<p>Send in the name of the destination</p>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>score</li>
+				<li>attempts_left: -1 for questions which have already been answered. Otherwise no. of attempts left. This field does not exist if the location does not have a question.</li>
+				<li>question: empty string for locations without a question.</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>POST /api/submit/</h2>
+			<p>Submit an answer to the question on the current location. If the answer is correct, user's score increases by the stipend of that location divided by score_divider^(attempts-1)</p>
+			<table>
+				<tr><td>Request Format</td><td>text/plain</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
+			</table>
+			<h4>Request:</h4>
+			<p>Send in the answer</p>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>attempt_status: true for correct answer, false for wrong answer, null if answer was not checked (because attempts were over, or it has already been correctly answered)</li>
+				<li>attempts_left: -1 for questions which have already been answered. Otherwise no. of attempts left. This field does not exist if the location does not have a question.</li>
+				<li>score</li>
+			</ul>
+		</li>
+
+		<li>
+			<h2>GET /api/loc_distr/</h2>
+			<p>Gets the list of all cities categorized by attempt status. It is recommended to call this endpoint only once, after user logs in.</p>
+			<table>
+				<tr><td>Request Format</td><td>-</td></tr>
+				<tr><td>Response Format</td><td>application/json</td></tr>
+				<tr><td>Auth required</td><td>Yes</td></tr>
+			</table>
+			<h4>Response fields:</h4>
+			<ul>
+				<li>correct: locations where user has correctly answered the question</li>
+				<li>blocked: locations where user has wrongly answered the question and does not have any more attempts left</li>
+				<li>wrong: locations where user has wrongly answered the question and has more attempts left</li>
+			</ul>
+			<h4>Example Response:</h4>
+			<pre>
+{
+  "correct": [
+    "Hanoi",
+    "Barcelona",
+    "Istanbul"
+  ],
+  "blocked": [
+    "Paris",
+    "Morocco"
+  ],
+  "wrong": []
+}
+			</pre>
+		</li>
+	</ul>
+</body>
+</html>

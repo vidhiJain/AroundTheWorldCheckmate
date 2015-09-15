@@ -2,13 +2,13 @@ from django.contrib import admin
 from main.models import Question, Player, Attempt, Distance
 
 class QuestionAdmin(admin.ModelAdmin):
-	list_display = ('loc_name','text','answer','rent','stipend')
+	list_display = ('loc_name','rent','stipend','text','answer')
 
 class PlayerAdmin(admin.ModelAdmin):
-	list_display = ('user', 'score', 'arrival_time', 'curr_loc')
+	list_display = ('user', 'score', 'arrival_time', 'curr_loc', 'ip_address')
 
 class AttemptAdmin(admin.ModelAdmin):
-	list_display = ('user', 'question', 'attempts', 'correct')
+	list_display = ('user', 'question', 'attempts', 'correct', 'attempt_time')
 
 class DistanceAdmin(admin.ModelAdmin):
 	list_display = ('source','dest','distance')

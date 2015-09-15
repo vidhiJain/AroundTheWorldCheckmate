@@ -9,6 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 DEFAULT_QUESTIONS_FILE_PATH = os.path.join(BASE_DIR, "data", "questions.json")
 DEFAULT_LOCATIONS_FILE_PATH = os.path.join(BASE_DIR, "static", "locations.json")
+DEFAULT_JSONP_LOCATIONS_FILE_PATH = os.path.join(BASE_DIR, "static", "locations.js")
 
 REQUIRED_FIELDS = ('latitude','longitude')
 OPTIONAL_FIELDS = ('country','rent','stipend')
@@ -44,7 +45,15 @@ def make_loc_file():
 					details_dict[key] = ques[key]
 			loc_dict[loc_name] = details_dict
 
-	json.dump(loc_dict, open(DEFAULT_LOCATIONS_FILE_PATH,'w'), indent=2)
+	loc_string = json.dumps(loc_dict, indent=2)
+
+	json_file = open(DEFAULT_LOCATIONS_FILE_PATH,'w')
+	json_file.write(loc_string)
+	json_file.close()
+	js_file = open(DEFAULT_JSONP_LOCATIONS_FILE_PATH,'w')
+	js_file.write("var locations = "+loc_string)
+	js_file.close()
+
 
 if __name__=="__main__":
 	make_loc_file()

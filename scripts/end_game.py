@@ -7,8 +7,9 @@ if BASE_DIR not in sys.path:
 from django.utils import timezone
 
 def end_game():
-	User.objects.exclude(username="admin").update(is_active=False)
+	User.objects.exclude(player__isnull=True).update(is_active=False)
 	# a single database query makes sure that the game ends for everyone at the same time
+	status.set_all(False)
 	now = timezone.now()
 	for player in Player.objects.filter(curr_loc__isnull=False):
 		player.fly_to(None,now)
@@ -23,6 +24,7 @@ if __name__=="__main__":
 from django.contrib.auth.models import User
 from main.models import Player, Distance
 from django.conf import settings
+from scripts import status
 
 if __name__=="__main__":
 	end_game()
