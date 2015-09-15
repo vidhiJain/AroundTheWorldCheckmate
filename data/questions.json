@@ -132,8 +132,7 @@
 		"longitude": 104.2958,
 		"rent": 300.0,
 		"stipend": 18000.0
-		"question":
-		"A fisherman after fishing in the lake Baikal in Irkutsk, put the catch in 3 boxes. One box contains only trout, one box contains only sole and one box contains both. He was supposed to label the boxes 'trout', 'sole', 'both'. But since he was looking at hot Russian girls, he made a mistake in matching the labels with the correct boxes, such that now no box has the correct label. You are allowed to draw only 1 fish from only one of the boxes, to find out which box contains what. What is the label on the box you would choose?",
+		"question":"A fisherman after fishing in the lake Baikal in Irkutsk, put the catch in 3 boxes. One box contains only trout, one box contains only sole and one box contains both. He was supposed to label the boxes 'trout', 'sole', 'both'. But since he was looking at hot Russian girls, he made a mistake in matching the labels with the correct boxes, such that now no box has the correct label. You are allowed to draw only 1 fish from only one of the boxes, to find out which box contains what. What is the label on the box you would choose?",
 		"answer": "both"
 	},
 	"Hamburg":
@@ -143,12 +142,7 @@
 		"longitude": 10.0014,
 		"rent": 200.0,
 		"stipend": 15000.0,
-		"question":
-		"<p>The Hamburg Rathaus is the city hall of Hamburg, Germany. It is the seat of the government of Hamburg and as such, the seat of one of Germany's 16 state parliaments. 
-Construction started in 1886 and the new city hall was inaugurated in 1897.</p>\n<p>After sometime a new room was found in the basement which remained intact but was locked. 
-The key to the lock was the difference between two numbers which were the answer to a mathematical puzzle: \"The two numbers had the highest possible product and they were to 
-be formed using all the numbers from 1 to 9 only once and they did not have a single common digit.\"</p>\n<p>What is the key?</p>",
-		"answer": "77889"
+		"question":"<p>The Hamburg Rathaus is the city hall of Hamburg, Germany. It is the seat of the government of Hamburg and as such, the seat of one of Germany's 16 state parliaments. Construction started in 1886 and the new city hall was inaugurated in 1897.</p>\n<p>After sometime a new room was found in the basement which remained intact but was locked. The key to the lock was the difference between two numbers which were the answer to a mathematical puzzle: \"The two numbers had the highest possible product and they were to be formed using all the numbers from 1 to 9 only once and they did not have a single common digit.\"</p>\n<p>What is the key?</p>",		"answer": "77889"
 	},
 	"Bali":
 	{
@@ -157,12 +151,7 @@ be formed using all the numbers from 1 to 9 only once and they did not have a si
 		"longitude": 115.2167,
 		"rent": 0.0,
 		"stipend": 800.0,
-		"question":
-		"<p>Five sailors survive a shipwreck and swim to a Beach of Bali island where there is nothing but coconut trees and a Kera monkey. The sailors gather all the coconuts 
-and put them in a big pile under the tree. Exhausted, they agree to go and wait until the next morning to divide the coconuts.</p>\n<p>At one o'clock in the morning,
- the first sailor wakes up. He realizes that he cannot trust the others, and decides to take his share now. He divides the coconuts into five equal piles,
- but there is one coconut left over. He gives that coconut to the monkey, hides his coconuts (one of the five piles), and puts the rest of the coconuts (the other four piles) back under the tree. At two o'clock, the second sailor wakes up. Not realizing that the first sailor has already taken his share, he too divides the coconuts up into five piles, leaving one coconut over which he gives to the monkey. He then hides his share (one of the five piles), and puts the remainder (the other four piles) back under the tree.</p>\n<p>At three, four, and five o'clock in the morning, the third, fourth, and fifth sailors each wake up and carry out the same actions.In the morning, all the sailors wake up, and try to look innocent. No one makes a remark about the diminished pile of coconuts, and no one decides to be honest and admit that they have already taken their share. 
-Instead, they divide the pile up into five piles, for the sixth time, and find that there is yet again one coconut left over, which they give to the monkey.</p>\n<p>Find out the number of coconut in the initial pile?</p>",
+		"question":"<p>Five sailors survive a shipwreck and swim to a Beach of Bali island where there is nothing but coconut trees and a Kera monkey. The sailors gather all the coconuts and put them in a big pile under the tree. Exhausted, they agree to go and wait until the next morning to divide the coconuts.</p>\n<p>At one o'clock in the morning, the first sailor wakes up. He realizes that he cannot trust the others, and decides to take his share now. He divides the coconuts into five equal piles, but there is one coconut left over. He gives that coconut to the monkey, hides his coconuts (one of the five piles), and puts the rest of the coconuts (the other four piles) back under the tree. At two o'clock, the second sailor wakes up. Not realizing that the first sailor has already taken his share, he too divides the coconuts up into five piles, leaving one coconut over which he gives to the monkey. He then hides his share (one of the five piles), and puts the remainder (the other four piles) back under the tree.</p>\n<p>At three, four, and five o'clock in the morning, the third, fourth, and fifth sailors each wake up and carry out the same actions.In the morning, all the sailors wake up, and try to look innocent. No one makes a remark about the diminished pile of coconuts, and no one decides to be honest and admit that they have already taken their share. Instead, they divide the pile up into five piles, for the sixth time, and find that there is yet again one coconut left over, which they give to the monkey.</p>\n<p>Find out the number of coconut in the initial pile?</p>",
 		"answer": "15621"
 	},
 	"Prague":
@@ -172,11 +161,7 @@ Instead, they divide the pile up into five piles, for the sixth time, and find t
 		"longitude": 14.4167,
 		"rent": 300.0,
 		"stipend": 18000.0,
-		"question":
-		"<p>Prague Castle is a castle complex in Prague, Czech Republic, dating from the 9th century and the official residence of the President of the Czech Republic. The castle
- was a seat of power for kings of Bohemia, Holy Roman emperors, and presidents of Czechoslovakia.</p>\n<p>A stark raving mad king tells his 100 wisest men he is about to line them up and
- that he will place either a red or blue hat on each of their heads. Once lined up, they must not communicate amongst themselves. Nor may they attempt to look behind them or remove their
- own hat. The king tells the wise men that they will be able to see all the hats in front of them. They will not be able to see the color of their own hat or the hats behind them, although they will be able to hear the answers from all those behind them.</p>\n<p>The king will then start with the wise man in the back and ask \"what color is your hat?\" The wise man will only be allowed to answer \"red\" or \"blue\", nothing more. If the answer is incorrect then the wise man will be silently killed. If the answer is correct then the wise man may live but must remain absolutely silent.</p>\n<p>The king will then move on to the next wise man and repeat the question. The king makes it clear that if anyone breaks the rules then all the wise men will die, then allows the wise men to consult before lining them up. The king listens in while the wise men consult each other to make sure they don't devise a plan to cheat. To communicate anything more than their guess of red or blue by coughing or shuffling would be breaking the rules. What is the maximum number of men they can guarantee to save?</p>",
+		"question":"<p>Prague Castle is a castle complex in Prague, Czech Republic, dating from the 9th century and the official residence of the President of the Czech Republic. The castle was a seat of power for kings of Bohemia, Holy Roman emperors, and presidents of Czechoslovakia.</p>\n<p>A stark raving mad king tells his 100 wisest men he is about to line them up and that he will place either a red or blue hat on each of their heads. Once lined up, they must not communicate amongst themselves. Nor may they attempt to look behind them or remove their own hat. The king tells the wise men that they will be able to see all the hats in front of them. They will not be able to see the color of their own hat or the hats behind them, although they will be able to hear the answers from all those behind them.</p>\n<p>The king will then start with the wise man in the back and ask \"what color is your hat?\" The wise man will only be allowed to answer \"red\" or \"blue\", nothing more. If the answer is incorrect then the wise man will be silently killed. If the answer is correct then the wise man may live but must remain absolutely silent.</p>\n<p>The king will then move on to the next wise man and repeat the question. The king makes it clear that if anyone breaks the rules then all the wise men will die, then allows the wise men to consult before lining them up. The king listens in while the wise men consult each other to make sure they don't devise a plan to cheat. To communicate anything more than their guess of red or blue by coughing or shuffling would be breaking the rules. What is the maximum number of men they can guarantee to save?</p>",
 		"answer": "99"
 	},
 	"Buenos Aires":
@@ -186,14 +171,7 @@ Instead, they divide the pile up into five piles, for the sixth time, and find t
 		"longitude": -58.3817,
 		"rent": 500.0,
 		"stipend": 25000.0,
-		"question":
-		"<p>In 1978, 5 BITSians (of different years) decided to go to Buenos Aires, the capital city of Argentina to watch FIFA world cup. Along the way they found 100 footballs
- lying around on the road. They decided to split the balls under the scheme: The senior most BITSian proposes how to share the balls, and all BITSians (not including the senior most) vote 
-for or against it. If 50% or more of the BITSians vote for it, then the balls will be shared that way. Otherwise, the BITSian proposing the scheme will be killed, and the process is
- repeated with the BITSians that remain.</p>\n<p>As these 5 BITSians are a rapacious bunch, if a BITSian would get the same number of balls if he voted for or against a proposal, he will
- vote against so that the BITSian who proposed the plan will be killed. Assuming all the the BITSians are intelligent, rational, greedy, and do not wish to die (and are also good at math),
- how many balls does the senior most BITSian get?</p>",
-		"answer": "97"
+		"question":"<p>In 1978, 5 BITSians (of different years) decided to go to Buenos Aires, the capital city of Argentina to watch FIFA world cup. Along the way they found 100 footballs lying around on the road. They decided to split the balls under the scheme: The senior most BITSian proposes how to share the balls, and all BITSians (not including the senior most) vote for or against it. If 50% or more of the BITSians vote for it, then the balls will be shared that way. Otherwise, the BITSian proposing the scheme will be killed, and the process is repeated with the BITSians that remain.</p>\n<p>As these 5 BITSians are a rapacious bunch, if a BITSian would get the same number of balls if he voted for or against a proposal, he will vote against so that the BITSian who proposed the plan will be killed. Assuming all the the BITSians are intelligent, rational, greedy, and do not wish to die (and are also good at math), how many balls does the senior most BITSian get?</p>",		"answer": "97"
 	},
 	"Maasai Mara":
 	{
@@ -203,10 +181,7 @@ for or against it. If 50% or more of the BITSians vote for it, then the balls wi
 		"rent": 400.0,
 		"stipend": 20000.0,
 		"question":
-		"<p>Maasai Mara is famous for wildlife reserve. It has a wide variety of grassland animals. Gazelles are known for their ability to make long and high jumps. One such gazel
-le, named Avi, really likes to jump. The local people have made an 8x8 grid for him to play.</p>\n<p>Avi plays a game consisting of multiple moves. In each move, he jumps 3 units towards
- the north, south, west or east and then one unit in the perpendicular direction (similar to a horse on a chessboard, except that a horse makes a 2 unit jump instead of 3). He starts 
-from a corner of the grid. What is the minimum number of moves in which he can reach the opposite corner?</p>",
+		"<p>Maasai Mara is famous for wildlife reserve. It has a wide variety of grassland animals. Gazelles are known for their ability to make long and high jumps. One such gazelle, named Avi, really likes to jump. The local people have made an 8x8 grid for him to play.</p>\n<p>Avi plays a game consisting of multiple moves. In each move, he jumps 3 units towards the north, south, west or east and then one unit in the perpendicular direction (similar to a horse on a chessboard, except that a horse makes a 2 unit jump instead of 3). He starts from a corner of the grid. What is the minimum number of moves in which he can reach the opposite corner?</p>",
 		"answer": "5"
 	},
 "Siem Reap":
@@ -216,8 +191,7 @@ from a corner of the grid. What is the minimum number of moves in which he can r
 		"longitude": 103.860000,
 		"rent": 500.0,
 		"stipend": 25000.0,
-		"question":
-		"<p>There was a group of elite monks The Order of the Blue Lotus in Angkor Wat. These monks have all taken a vow of silence. They cannot communicate with each other or with the world, and all they do is pray in a common room during the day and sleep at night. As well, they have no mirrors in the compound. One day, the head monk calls them all together and says "Tonight while you sleep, I will place a black X on some of your foreheads. When you awaken, continue your normal activities. But once you determine that you have an X, you must wait until night, and then kill yourself as you are considered unfit to serve Order of Blue Lotus". So from then on, they pray together by day, and each night some may commit suicide.<br/>The question: if there are N monks with Xes, how many days does it take for the N monks to commit suicide?</p>",
+		"question":"<p>There was a group of elite monks The Order of the Blue Lotus in Angkor Wat. These monks have all taken a vow of silence. They cannot communicate with each other or with the world, and all they do is pray in a common room during the day and sleep at night. As well, they have no mirrors in the compound. One day, the head monk calls them all together and says "Tonight while you sleep, I will place a black X on some of your foreheads. When you awaken, continue your normal activities. But once you determine that you have an X, you must wait until night, and then kill yourself as you are considered unfit to serve Order of Blue Lotus". So from then on, they pray together by day, and each night some may commit suicide.<br/>The question: if there are N monks with Xes, how many days does it take for the N monks to commit suicide?</p>",
 		"answer": "N"
 	},
 
