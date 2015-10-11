@@ -1,4 +1,5 @@
 # Checkmate
+An Aptitude based quiz game 
 
 Code for checkmate 2015. Made using Python 3.4 and Django 1.8.
 
